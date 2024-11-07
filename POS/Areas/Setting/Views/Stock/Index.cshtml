@@ -1,0 +1,104 @@
+﻿@model StockViewModel
+
+<div class="container">
+    <form method="post" id="stockForm" asp-action="Index">
+        <input asp-for="Stock.StockId" class="form-control" value="@Model.Stock.StockId" type="hidden" id="ModelId"/>
+        <div class="border p-3 mt-4">
+            <div class="row pb-2">
+                <h2 class="text-primary">各倉庫 - 基本資料</h2>
+                <hr />
+            </div>
+            <div class="d-flex flex-wrap mb-3">
+                <button id="addButton" class="btn btn-secondary border m-1 flex-grow-1">新增</button>
+                
+                @if (Model.Stock.StockId == 0 || Model.Stock.StockId == null)
+                {
+                    <button id="editButton" class="btn btn-secondary border m-1 flex-grow-1" disabled>修改</button>
+                    <button id="deleteButton" class="btn btn-secondary border m-1 flex-grow-1" disabled>刪除</button>
+                }else
+                {
+                    <button id="editButton" class="btn btn-secondary border m-1 flex-grow-1">修改</button>
+                    <button id="deleteButton" class="btn btn-secondary border m-1 flex-grow-1">刪除</button>
+                }
+
+                <button id="cancelButton" class="btn btn-secondary border m-1 flex-grow-1" disabled>取消</button>
+                <button id="searchButton" class="btn btn-secondary border m-1 flex-grow-1">查詢</button>
+                <button id="printButton" class="btn btn-secondary border m-1 flex-grow-1">列印</button>
+                <button type="submit" class="btn btn-primary m-1 flex-grow-1" id="submitButton" disabled>存檔</button>
+            </div>
+            <div class="mb-3 row p-1">
+                <label asp-for="Stock.Name" class="p-0"></label>
+                <input asp-for="Stock.Name" class="form-control" disabled />
+                <span asp-validation-for="Stock.Name" class="text-danger"></span>
+            </div>
+            <div class="mb-3 row p-1">
+                <div class="col d-flex align-items-center">
+                    @Html.CheckBoxFor(model => model.Stock.IsShowFront, new {@disabled = "disabled", @class = "form-check-input"})
+                    <label asp-for="Stock.IsShowFront" class="p-0 m-0"></label>
+                    <span asp-validation-for="Stock.IsShowFront" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="mb-3 row p-1">
+                <div class="col d-flex align-items-center">
+                    @Html.CheckBoxFor(model => model.Stock.IsShowHeadquarters, new { @disabled = "disabled", @class = "form-check-input" })
+                    <label asp-for="Stock.IsShowHeadquarters" class="p-0"></label>
+                    <span asp-validation-for="Stock.IsShowHeadquarters" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="mb-3 row p-1">
+                <label asp-for="Stock.Phone" class="p-0"></label>
+                <input asp-for="Stock.Phone" class="form-control" disabled />
+                <span asp-validation-for="Stock.Phone" class="text-danger"></span>
+            </div>
+            <div class="mb-3 row p-1">
+                <label asp-for="Stock.Fax" class="p-0"></label>
+                <input asp-for="Stock.Fax" class="form-control" disabled />
+                <span asp-validation-for="Stock.Fax" class="text-danger"></span>
+            </div>
+            <div class="mb-3 row p-1">
+                <label asp-for="Stock.Address" class="p-0"></label>
+                <input asp-for="Stock.Address" class="form-control" disabled />
+                <span asp-validation-for="Stock.Address" class="text-danger"></span>
+            </div>
+            <div class="mb-3 row p-1">
+                <label asp-for="Stock.Group" class="p-0"></label>
+                <select asp-for="Stock.Group" asp-items="@Html.GetEnumSelectList<POS.Utility.Enum.StockGroup>();" disabled>
+                    <option selected disabled>請選擇群組</option>
+                </select>
+                <span asp-validation-for="Stock.Group" class="text-danger"></span>
+            </div>
+            <div class="mb-3 row p-1">
+                <label asp-for="Stock.ShopId" class="p-0"></label>
+                <select asp-for="Stock.ShopId" asp-items="@Model.ShopList" disabled>
+                    <option selected disabled>請選擇店點</option>
+                </select>
+                <span asp-validation-for="Stock.ShopId" class="text-danger"></span>
+            </div>
+        </div>
+    </form>
+</div>
+<hr />
+<div class="container">
+    <table id="tblData" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>NO</th>
+                <th>倉庫名稱</th>
+                <th>倉庫群組</th>
+                <th>倉庫電話</th>
+                <th>倉庫傳真</th>
+                <th>倉庫地址</th>
+                <th>前台庫存選單</th>
+                <th>總部庫存選單</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+    <script src="~/js/Setting/stock.js"></script>
+}

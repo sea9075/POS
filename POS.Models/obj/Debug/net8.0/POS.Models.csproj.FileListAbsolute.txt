@@ -1,0 +1,30 @@
+D:\我的文件\Desktop\KUEI\NewPOS\POS\POS.Models\bin\Debug\net8.0\POS.Models.deps.json
+D:\我的文件\Desktop\KUEI\NewPOS\POS\POS.Models\bin\Debug\net8.0\POS.Models.dll
+D:\我的文件\Desktop\KUEI\NewPOS\POS\POS.Models\bin\Debug\net8.0\POS.Models.pdb
+D:\我的文件\Desktop\KUEI\NewPOS\POS\POS.Models\obj\Debug\net8.0\POS.Models.csproj.AssemblyReference.cache
+D:\我的文件\Desktop\KUEI\NewPOS\POS\POS.Models\obj\Debug\net8.0\POS.Models.GeneratedMSBuildEditorConfig.editorconfig
+D:\我的文件\Desktop\KUEI\NewPOS\POS\POS.Models\obj\Debug\net8.0\POS.Models.AssemblyInfoInputs.cache
+D:\我的文件\Desktop\KUEI\NewPOS\POS\POS.Models\obj\Debug\net8.0\POS.Models.AssemblyInfo.cs
+D:\我的文件\Desktop\KUEI\NewPOS\POS\POS.Models\obj\Debug\net8.0\POS.Models.csproj.CoreCompileInputs.cache
+D:\我的文件\Desktop\KUEI\NewPOS\POS\POS.Models\obj\Debug\net8.0\POS.Models.dll
+D:\我的文件\Desktop\KUEI\NewPOS\POS\POS.Models\obj\Debug\net8.0\refint\POS.Models.dll
+D:\我的文件\Desktop\KUEI\NewPOS\POS\POS.Models\obj\Debug\net8.0\POS.Models.pdb
+D:\我的文件\Desktop\KUEI\NewPOS\POS\POS.Models\obj\Debug\net8.0\ref\POS.Models.dll
+D:\我的文件\Desktop\KUEI\NewPOS\POS - 20241025\POS.Models\bin\Debug\net8.0\POS.Models.deps.json
+D:\我的文件\Desktop\KUEI\NewPOS\POS - 20241025\POS.Models\bin\Debug\net8.0\POS.Models.dll
+D:\我的文件\Desktop\KUEI\NewPOS\POS - 20241025\POS.Models\bin\Debug\net8.0\POS.Models.pdb
+D:\我的文件\Desktop\KUEI\NewPOS\POS - 20241025\POS.Models\bin\Debug\net8.0\POS.Utility.dll
+D:\我的文件\Desktop\KUEI\NewPOS\POS - 20241025\POS.Models\bin\Debug\net8.0\POS.Utility.pdb
+D:\我的文件\Desktop\KUEI\NewPOS\POS - 20241025\POS.Models\obj\Debug\net8.0\POS.Models.csproj.AssemblyReference.cache
+D:\我的文件\Desktop\KUEI\NewPOS\POS - 20241025\POS.Models\obj\Debug\net8.0\POS.Models.GeneratedMSBuildEditorConfig.editorconfig
+D:\我的文件\Desktop\KUEI\NewPOS\POS - 20241025\POS.Models\obj\Debug\net8.0\POS.Models.AssemblyInfoInputs.cache
+D:\我的文件\Desktop\KUEI\NewPOS\POS - 20241025\POS.Models\obj\Debug\net8.0\POS.Models.AssemblyInfo.cs
+D:\我的文件\Desktop\KUEI\NewPOS\POS - 20241025\POS.Models\obj\Debug\net8.0\POS.Models.csproj.CoreCompileInputs.cache
+D:\我的文件\Desktop\KUEI\NewPOS\POS - 20241025\POS.Models\obj\Debug\net8.0\POS.Models.csproj.Up2Date
+D:\我的文件\Desktop\KUEI\NewPOS\POS - 20241025\POS.Models\obj\Debug\net8.0\POS.Models.dll
+D:\我的文件\Desktop\KUEI\NewPOS\POS - 20241025\POS.Models\obj\Debug\net8.0\refint\POS.Models.dll
+D:\我的文件\Desktop\KUEI\NewPOS\POS - 20241025\POS.Models\obj\Debug\net8.0\POS.Models.pdb
+D:\我的文件\Desktop\KUEI\NewPOS\POS - 20241025\POS.Models\obj\Debug\net8.0\ref\POS.Models.dll
+D:\我的文件\Desktop\KUEI\NewPOS\POS\POS.Models\bin\Debug\net8.0\POS.Utility.dll
+D:\我的文件\Desktop\KUEI\NewPOS\POS\POS.Models\bin\Debug\net8.0\POS.Utility.pdb
+D:\我的文件\Desktop\KUEI\NewPOS\POS\POS.Models\obj\Debug\net8.0\POS.Models.csproj.Up2Date

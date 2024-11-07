@@ -1,0 +1,62 @@
+﻿@model Company
+
+<form method="post">
+    <input asp-for="CompanyId" class="form-control" value="@Model.CompanyId" type="hidden"/>
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">總公司 - 基本資料</h2>
+            <hr />
+        </div>
+        <div class="row">
+            <div class="col-6 col-md-3">
+                <a id="switchButton" class="btn btn-secondary border form-control">修改</a>
+            </div>
+            <div class="col-6 col-md-3">
+                <button type="submit" class="btn btn-primary form-control">存檔</button>
+            </div>         
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Name" class="p-0"></label>
+            <input asp-for="Name" class="form-control" disabled />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Phone" class="p-0"></label>
+            <input asp-for="Phone" class="form-control" disabled />
+            <span asp-validation-for="Phone" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Fax" class="p-0"></label>
+            <input asp-for="Fax" class="form-control" disabled >
+            <span asp-validation-for="Fax" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Url" class="p-0"></label>
+            <input asp-for="Url" class="form-control" disabled />
+            <span asp-validation-for="Url" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Email" class="p-0"></label>
+            <input asp-for="Email" class="form-control" disabled />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Address" class="p-0"></label>
+            <input asp-for="Address" class="form-control" disabled />
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="TaxAddress" class="p-0"></label>
+            <input asp-for="TaxAddress" class="form-control" disabled />
+            <span asp-validation-for="TaxAddress" class="text-danger"></span>
+        </div>
+        
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+        <script src="~/js/Setting/company.js"></script>
+    }
+}

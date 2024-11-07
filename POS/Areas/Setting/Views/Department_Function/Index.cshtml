@@ -1,0 +1,88 @@
+﻿@model Department_FunctionViewModel
+
+<div class="row">
+    <div class="col-3 container">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>編號</th>
+                    <th>名稱</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var department in Model.DepartmentList)
+                {
+                    <tr>
+                        <td>@department.ShortName</td>
+                        <td>@department.Name</td>
+                        <td>
+                            <a href="#" class="getDepartmentId" data-department-id="@department.DepartmentId">選擇</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-9 container">
+        <div class="d-flex flex-wrap mb-3">
+            <button id="showFrontSetting" class="btn btn-secondary border m-1 flex-grow-1">前台</button>
+            <button id="showBackSetting" class="btn btn-secondary border m-1 flex-grow-1">後台</button>
+            <button id="showAnalyzeSetting" class="btn btn-secondary border m-1 flex-grow-1">分析</button>
+            <button id="showFixSetting" class="btn btn-secondary border m-1 flex-grow-1">維修</button>
+        </div>
+        <form method="post">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>功能名稱</th>
+                        <th>啟動</th>
+                    </tr>
+                </thead>
+                <tbody class="select-table" id="backTable" style="display: none">
+                    @foreach (var function in Model.FunctionList.Where(u => u.Group == POS.Utility.Enum.FunctionGroup.後台))
+                    {
+                        <tr>
+                            <td>@function.FunctionChineseName</td>
+                            <td>@Html.CheckBoxFor(model => model.Department_Function.IsEnable)</td>
+                        </tr>
+                    }
+                </tbody>
+                <tbody class="select-table" id="frontTable" style="display: none">
+                    @foreach (var function in Model.FunctionList.Where(u => u.Group == POS.Utility.Enum.FunctionGroup.前台))
+                    {
+                        <tr>
+                            <td>@function.FunctionChineseName</td>
+                            <td>@Html.CheckBoxFor(model => model.Department_Function.IsEnable)</td>
+                        </tr>
+                    }
+                </tbody>
+                <tbody class="select-table" id="analyzeTable" style="display: none">
+                    @foreach (var function in Model.FunctionList.Where(u => u.Group == POS.Utility.Enum.FunctionGroup.分析))
+                    {
+                        <tr>
+                            <td>@function.FunctionChineseName</td>
+                            <td>@Html.CheckBoxFor(model => model.Department_Function.IsEnable)</td>
+                        </tr>
+                    }
+                </tbody>
+                <tbody class="select-table" id="fixTable" style="display: none">
+                    @foreach (var function in Model.FunctionList.Where(u => u.Group == POS.Utility.Enum.FunctionGroup.維修))
+                    {
+                        <tr>
+                            <td>@function.FunctionChineseName</td>
+                            <td>@Html.CheckBoxFor(model => model.Department_Function.IsEnable)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+    <script src="~/js/Setting/department_function.js"></script>
+}

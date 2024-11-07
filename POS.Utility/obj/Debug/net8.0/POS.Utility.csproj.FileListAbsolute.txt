@@ -1,0 +1,22 @@
+D:\我的文件\Desktop\KUEI\NewPOS\POS - 20241025\POS.Utility\bin\Debug\net8.0\POS.Utility.deps.json
+D:\我的文件\Desktop\KUEI\NewPOS\POS - 20241025\POS.Utility\bin\Debug\net8.0\POS.Utility.dll
+D:\我的文件\Desktop\KUEI\NewPOS\POS - 20241025\POS.Utility\bin\Debug\net8.0\POS.Utility.pdb
+D:\我的文件\Desktop\KUEI\NewPOS\POS - 20241025\POS.Utility\obj\Debug\net8.0\POS.Utility.GeneratedMSBuildEditorConfig.editorconfig
+D:\我的文件\Desktop\KUEI\NewPOS\POS - 20241025\POS.Utility\obj\Debug\net8.0\POS.Utility.AssemblyInfoInputs.cache
+D:\我的文件\Desktop\KUEI\NewPOS\POS - 20241025\POS.Utility\obj\Debug\net8.0\POS.Utility.AssemblyInfo.cs
+D:\我的文件\Desktop\KUEI\NewPOS\POS - 20241025\POS.Utility\obj\Debug\net8.0\POS.Utility.csproj.CoreCompileInputs.cache
+D:\我的文件\Desktop\KUEI\NewPOS\POS - 20241025\POS.Utility\obj\Debug\net8.0\POS.Utility.dll
+D:\我的文件\Desktop\KUEI\NewPOS\POS - 20241025\POS.Utility\obj\Debug\net8.0\refint\POS.Utility.dll
+D:\我的文件\Desktop\KUEI\NewPOS\POS - 20241025\POS.Utility\obj\Debug\net8.0\POS.Utility.pdb
+D:\我的文件\Desktop\KUEI\NewPOS\POS - 20241025\POS.Utility\obj\Debug\net8.0\ref\POS.Utility.dll
+D:\我的文件\Desktop\KUEI\NewPOS\POS\POS.Utility\bin\Debug\net8.0\POS.Utility.deps.json
+D:\我的文件\Desktop\KUEI\NewPOS\POS\POS.Utility\bin\Debug\net8.0\POS.Utility.dll
+D:\我的文件\Desktop\KUEI\NewPOS\POS\POS.Utility\bin\Debug\net8.0\POS.Utility.pdb
+D:\我的文件\Desktop\KUEI\NewPOS\POS\POS.Utility\obj\Debug\net8.0\POS.Utility.GeneratedMSBuildEditorConfig.editorconfig
+D:\我的文件\Desktop\KUEI\NewPOS\POS\POS.Utility\obj\Debug\net8.0\POS.Utility.AssemblyInfoInputs.cache
+D:\我的文件\Desktop\KUEI\NewPOS\POS\POS.Utility\obj\Debug\net8.0\POS.Utility.AssemblyInfo.cs
+D:\我的文件\Desktop\KUEI\NewPOS\POS\POS.Utility\obj\Debug\net8.0\POS.Utility.csproj.CoreCompileInputs.cache
+D:\我的文件\Desktop\KUEI\NewPOS\POS\POS.Utility\obj\Debug\net8.0\POS.Utility.dll
+D:\我的文件\Desktop\KUEI\NewPOS\POS\POS.Utility\obj\Debug\net8.0\refint\POS.Utility.dll
+D:\我的文件\Desktop\KUEI\NewPOS\POS\POS.Utility\obj\Debug\net8.0\POS.Utility.pdb
+D:\我的文件\Desktop\KUEI\NewPOS\POS\POS.Utility\obj\Debug\net8.0\ref\POS.Utility.dll
