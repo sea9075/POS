@@ -1,36 +1,22 @@
-﻿let departmentId = 0;
+﻿function selectDepartmentId(departmentId) {
+    var inputDepartmentId = document.querySelectorAll(".input-department-id");
+    var functionButtons = document.querySelectorAll("button");
 
-document.querySelectorAll(".getDepartmentId").forEach(link => {
-    link.addEventListener("click", function () {
-        event.preventDefault();
-        departmentId = this.getAttribute("data-department-id");
-        console.log(departmentId);
-    });
-});
+    for (var i = 0; i < inputDepartmentId.length; i++) {
+        inputDepartmentId[i].value = departmentId;
+    }
 
-// 顯示對應的資料
-document.getElementById("showFrontSetting").addEventListener("click", function () {
-    showTable("frontTable")
-});
+    for (var i = 0; i < functionButtons.length; i++) {
+        functionButtons[i].removeAttribute("disabled");
+    }
+}
 
-document.getElementById("showBackSetting").addEventListener("click", function () {
-    showTable("backTable")
-});
-
-document.getElementById("showAnalyzeSetting").addEventListener("click", function () {
-    showTable("analyzeTable")
-})
-
-document.getElementById("showFixSetting").addEventListener("click", function () {
-    showTable("fixTable")
-})
-
-function showTable(tableId) {
-    var tables = document.querySelectorAll('select-table');
-    tables.forEach(function (table) {
-        table.style.display = 'none';
-    });
-
-    document.getElementById(tableId).style.display = 'table-row-group';
-    console.log("AAA");
+// 顯示 FunctionList
+function showTable(name) {
+    var hiddenTables = document.querySelectorAll('.hidden-Table');
+    for (var i = 0; i < hiddenTables.length; i++) {
+        hiddenTables[i].style.display = "none";
+    }
+    var showTable = document.getElementById(name + "Table");
+    showTable.style.display = "";
 }

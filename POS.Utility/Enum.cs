@@ -49,6 +49,7 @@
 
         public enum FunctionGroup : int
         {
+            Admin = 0,
             後台 = 1,
             前台 = 2,
             分析 = 3,
