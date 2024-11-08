@@ -35,9 +35,27 @@ namespace POS.Areas.Setting.Controllers
             if (ModelState.IsValid)
             {
                 department.Timeset = DateTime.Now;
-
                 _unitOfWork.Department.Add(department);
                 await _unitOfWork.SaveAsync();
+
+                // 獲取剛剛新增的 DepartmentId，並存入 Department_Function 的 DepartmentId
+                List<Function> functionList = (await _unitOfWork.Function.GetAllAsync()).ToList();
+
+                foreach (var function in functionList)
+                {
+                    Department_Function department_Function = new()
+                    {
+                        DepartmentId = department.DepartmentId,
+                        FunctionId = function.FunctionId,
+                        IsEnable = false,
+                        Timeset = DateTime.Now,
+                    };
+
+                    _unitOfWork.Department_Function.Add(department_Function);
+                }
+
+                await _unitOfWork.SaveAsync();
+
                 return RedirectToAction("Index", new { id = department.DepartmentId });
             }
             else

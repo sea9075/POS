@@ -1,7 +1,7 @@
 ﻿@model Department_FunctionViewModel
 
 <div class="row">
-    <div class="col-3 container">
+    <div class="container col-3">
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
@@ -11,27 +11,28 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var department in Model.DepartmentList)
+                @foreach (var department in Model.DepartmentList.Where(u => u.DepartmentId != 1))
                 {
                     <tr>
                         <td>@department.ShortName</td>
                         <td>@department.Name</td>
                         <td>
-                            <a href="#" class="getDepartmentId" data-department-id="@department.DepartmentId">選擇</a>
+                            <a href="javascript:void(0)" onclick="getDepartmentId(@department.DepartmentId)">選擇</a>
                         </td>
                     </tr>
                 }
             </tbody>
         </table>
     </div>
-    <div class="col-9 container">
+    <div class="container col-9">
         <div class="d-flex flex-wrap mb-3">
-            <button id="showFrontSetting" class="btn btn-secondary border m-1 flex-grow-1">前台</button>
-            <button id="showBackSetting" class="btn btn-secondary border m-1 flex-grow-1">後台</button>
-            <button id="showAnalyzeSetting" class="btn btn-secondary border m-1 flex-grow-1">分析</button>
-            <button id="showFixSetting" class="btn btn-secondary border m-1 flex-grow-1">維修</button>
+            <button class="btn btn-secondary border m-1 flex-grow-1 selectFunction" onclick="selectTable('front')" disabled>前台</button>
+            <button class="btn btn-secondary border m-1 flex-grow-1 selectFunction" onclick="selectTable('back')" disabled>後台</button>
+            <button class="btn btn-secondary border m-1 flex-grow-1 selectFunction" onclick="selectTable('analyze')" disabled>分析</button>
+            <button class="btn btn-secondary border m-1 flex-grow-1 selectFunction" onclick="selectTable('fix')" disabled>維修</button>
         </div>
-        <form method="post">
+        <form method="post" asp-action="AddPermission">
+            <button class="btn btn-primary border m-1 flex-grow-1" type="submit">存檔</button>
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
@@ -39,40 +40,22 @@
                         <th>啟動</th>
                     </tr>
                 </thead>
-                <tbody class="select-table" id="backTable" style="display: none">
-                    @foreach (var function in Model.FunctionList.Where(u => u.Group == POS.Utility.Enum.FunctionGroup.後台))
+                <!--前台-->
+                <tbody class="hidden-table" id="front-table" style="">
+                    @for (int i = 0; i < Model.Department_FunctionList.Count; i++)
                     {
-                        <tr>
-                            <td>@function.FunctionChineseName</td>
-                            <td>@Html.CheckBoxFor(model => model.Department_Function.IsEnable)</td>
-                        </tr>
-                    }
-                </tbody>
-                <tbody class="select-table" id="frontTable" style="display: none">
-                    @foreach (var function in Model.FunctionList.Where(u => u.Group == POS.Utility.Enum.FunctionGroup.前台))
-                    {
-                        <tr>
-                            <td>@function.FunctionChineseName</td>
-                            <td>@Html.CheckBoxFor(model => model.Department_Function.IsEnable)</td>
-                        </tr>
-                    }
-                </tbody>
-                <tbody class="select-table" id="analyzeTable" style="display: none">
-                    @foreach (var function in Model.FunctionList.Where(u => u.Group == POS.Utility.Enum.FunctionGroup.分析))
-                    {
-                        <tr>
-                            <td>@function.FunctionChineseName</td>
-                            <td>@Html.CheckBoxFor(model => model.Department_Function.IsEnable)</td>
-                        </tr>
-                    }
-                </tbody>
-                <tbody class="select-table" id="fixTable" style="display: none">
-                    @foreach (var function in Model.FunctionList.Where(u => u.Group == POS.Utility.Enum.FunctionGroup.維修))
-                    {
-                        <tr>
-                            <td>@function.FunctionChineseName</td>
-                            <td>@Html.CheckBoxFor(model => model.Department_Function.IsEnable)</td>
-                        </tr>
+                        var item = Model.Department_FunctionList[i];
+                        if (item.Function.Group != POS.Utility.Enum.FunctionGroup.Admin && item.Department.DepartmentId != 1)
+                        {
+                            <tr>
+                                <td>
+                                    @item.Function.FunctionChineseName
+                                </td>
+                                <td>
+                                    @Html.CheckBoxFor(u => u.Department_FunctionList[i].IsEnable)
+                                </td>
+                            </tr>
+                        }
                     }
                 </tbody>
             </table>
@@ -80,7 +63,7 @@
     </div>
 </div>
 
-@section Scripts {
+@section Scripts{
     @{
         <partial name="_ValidationScriptsPartial" />
     }
