@@ -1,0 +1,156 @@
+﻿@model Employee
+
+<div class="container">
+    <form method="post" id="stockForm" asp-action="Index" enctype="multipart/form-data">
+        <input asp-for="EmployeeId" class="form-control" value="@Model.EmployeeId" type="hidden" id="ModelId" />
+        <div class="border p-3 mt-4">
+            <div class="row pb-2">
+                <h2 class="text-primary">員工基本資料</h2>
+                <hr />
+            </div>
+            <div class="d-flex flex-wrap mb-3">
+                <button type="button" id="createButton" class="btn btn-secondary border m-1 flex-grow-1" onclick="add()">新增</button>
+                <button type="button" id="editButton" class="btn btn-secondary border m-1 flex-grow-1" onclick="edit()" @(Model.Stock.StockId == 0 ? "disabled" : "")>修改</button>
+                <button id="deleteButton" class="btn btn-secondary border m-1 flex-grow-1" onclick="deleteClick(@Model.Stock.StockId)" @(Model.Stock.StockId == 0 ? "disabled" : "")>刪除</button>
+                <button type="button" id="cancelButton" class="btn btn-secondary border m-1 flex-grow-1" onclick="cancel()" disabled>取消</button>
+                <button type="button" id="searchButton" class="btn btn-secondary border m-1 flex-grow-1">查詢</button>
+                <button type="button" id="printButton" class="btn btn-secondary border m-1 flex-grow-1">列印</button>
+                <button type="submit" class="btn btn-primary m-1 flex-grow-1" id="submitButton" disabled>存檔</button>
+            </div>
+            <div class="row">
+                <div class="col-8">
+                    <div class="mb-3 row p-1">
+                        <label asp-for="Name" class="p-0"></label>
+                        <input asp-for="Name" class="form-control" disabled />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3 row p-1">
+                        <div class="col d-flex align-items-center">
+                            <input asp-for="IsMarried" class="form-check-input" disabled/>
+                            <label asp-for="IsMarried" class="p-0 m-0"></label>
+                            <span asp-validation-for="IsMarried" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="mb-3 row p-1">
+                        <label asp-for="ID_Number" class="p-0"></label>
+                        <input asp-for="ID_Number" class="form-control" disabled />
+                        <span asp-validation-for="ID_Number" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3 row p-1">
+                        <label asp-for="Phone" class="p-0"></label>
+                        <input asp-for="Phone" class="form-control" disabled />
+                        <span asp-validation-for="Phone" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3 row p-1">
+                        <label asp-for="Cellphone" class="p-0"></label>
+                        <input asp-for="Cellphone" class="form-control" disabled />
+                        <span asp-validation-for="Cellphone" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3 row p-1">
+                        <label asp-for="Address" class="p-0"></label>
+                        <input asp-for="Address" class="form-control" disabled />
+                        <span asp-validation-for="Address" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3 row p-1">
+                        <label asp-for="PermanentAddress" class="p-0"></label>
+                        <input asp-for="PermanentAddress" class="form-control" disabled />
+                        <span asp-validation-for="PermanentAddress" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3 row p-1">
+                        <label asp-for="Email" class="p-0"></label>
+                        <input asp-for="Email" class="form-control" disabled />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3 row p-1">
+                        <label asp-for="EmerencyContact" class="p-0"></label>
+                        <input asp-for="EmerencyContact" class="form-control" disabled />
+                        <span asp-validation-for="EmerencyContact" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3 row p-1">
+                        <label asp-for="EmerencyContactPhone" class="p-0"></label>
+                        <input asp-for="EmerencyContactPhone" class="form-control" disabled />
+                        <span asp-validation-for="EmerencyContactPhone" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3 row p-1">
+                        <label asp-for="Education" class="p-0"></label>
+                        <input asp-for="Education" class="form-control" disabled />
+                        <span asp-validation-for="Education" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3 row p-1">
+                        <label asp-for="Gender" class="p-0"></label>
+                        <select asp-for="Gender" asp-items="@Html.GetEnumSelectList<POS.Utility.Enum.Gender>();" disabled>
+                            @if (Model.Gender == null)
+                            {
+                                <option selected disabled>請選擇性別</option>
+                            }
+                        </select>
+                        <span asp-validation-for="Gender" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3 row p-1">
+                        <label asp-for="BirthDate" class="p-0"></label>
+                        <input asp-for="BirthDate" class="form-control" type="date" disabled />
+                        <span asp-validation-for="BirthDate" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3 row p-1">
+                        <label asp-for="StartDate" class="p-0"></label>
+                        <input asp-for="StartDate" class="form-control" type="date" disabled />
+                        <span asp-validation-for="StartDate" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3 row p-1">
+                        <label asp-for="EndDate" class="p-0"></label>
+                        <input asp-for="EndDate" class="form-control" type="date" disabled />
+                        <span asp-validation-for="EndDate" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3 row p-1">
+                        <label asp-for="Note" class="p-0"></label>
+                        <textarea asp-for="Note" class="form-control" disabled></textarea>
+                        <span asp-validation-for="Note" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3 row p-1">
+                        <label asp-for="SalesTarget" class="p-0"></label>
+                        <input asp-for="SalesTarget" class="form-control" type="number" disabled />
+                        <span asp-validation-for="SalesTarget" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3 row p-1">
+                        <label asp-for="GrossProfit" class="p-0"></label>
+                        <input asp-for="GrossProfit" class="form-control" type="number" disabled />
+                        <span asp-validation-for="GrossProfit" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-4">
+                    @if (Model.Photo == null)
+                    {
+
+                    }
+                    else
+                    {
+                        <img src="@Model.Photo" class="mt-4" width="100%" style="border-radius:5px; border:1px solid #bbb9b9"/>
+                    }
+                    <input asp-for="Photo" class="form-control" type="file" name="file" disabled/>
+                    <span asp-validation-for="Photo" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<hr />
+<div class="container">
+    <table id="tblData" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>NO</th>
+                <th>員工姓名</th>
+                <th>連絡電話</th>
+                <th>手機號碼</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+    <script src="~/js/Setting/employee.js"></script>
+}

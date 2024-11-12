@@ -18,7 +18,7 @@ namespace POS.Areas.Setting.Controllers
         {
             Department department = new Department();
 
-            if (id == 0 || id == null)
+            if (id == 0 || id == null || id == 1)
             {
                 return View(department);
             }
@@ -54,29 +54,14 @@ namespace POS.Areas.Setting.Controllers
                     _unitOfWork.Department_Function.Add(department_Function);
                 }
 
+                TempData["success"] = "新增成功";
                 await _unitOfWork.SaveAsync();
 
                 return RedirectToAction("Index", new { id = department.DepartmentId });
             }
             else
             {
-                return RedirectToAction("Index");
-            }
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Delete(int? id)
-        {
-            var departmentDeleted = await  _unitOfWork.Department.GetAsync(u => u.DepartmentId == id);
-
-            if (departmentDeleted != null)
-            {
-                _unitOfWork.Department.Remove(departmentDeleted);
-                await _unitOfWork.SaveAsync();
-                return RedirectToAction("Index");
-            }
-            else
-            {
+                TempData["error"] = "新增失敗";
                 return RedirectToAction("Index");
             }
         }
@@ -89,11 +74,38 @@ namespace POS.Areas.Setting.Controllers
                 department.Timeset = DateTime.Now;
                 _unitOfWork.Department.Update(department);
                 await _unitOfWork.SaveAsync();
-                return RedirectToAction("Index", new {id = department.DepartmentId});
+                TempData["success"] = "更新成功";
+                return RedirectToAction("Index", new { id = department.DepartmentId });
             }
             else
             {
+                TempData["error"] = "更新失敗";
                 return RedirectToAction("Index", new { id = department.DepartmentId });
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(int? id)
+        {
+            var departmentDeleted = await  _unitOfWork.Department.GetAsync(u => u.DepartmentId == id);
+
+            if (departmentDeleted != null)
+            {
+                // 刪除 Department_Function
+                List<Department_Function> department_FunctionListDeleted = (await _unitOfWork.Department_Function.GetAllAsync(u => u.DepartmentId == departmentDeleted.DepartmentId)).ToList();
+                _unitOfWork.Department_Function.RemoveRange(department_FunctionListDeleted);
+
+                // 刪除 Department
+                _unitOfWork.Department.Remove(departmentDeleted);
+
+                await _unitOfWork.SaveAsync();
+                TempData["success"] = "刪除成功";
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                TempData["error"] = "刪除失敗";
+                return RedirectToAction("Index");
             }
         }
 
@@ -101,7 +113,7 @@ namespace POS.Areas.Setting.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            List<Department> departmentListJson = (await _unitOfWork.Department.GetAllAsync()).ToList();
+            List<Department> departmentListJson = (await _unitOfWork.Department.GetAllAsync(u => u.DepartmentId != 1)).ToList();
             return Json (new {data = departmentListJson});
         }
         #endregion

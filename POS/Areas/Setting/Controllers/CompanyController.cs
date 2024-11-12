@@ -37,11 +37,13 @@ namespace POS.Areas.Setting.Controllers
                 {
                     company.Timeset = DateTime.Now;
                     _unitOfWork.Company.Add(company);
+                    TempData["success"] = "新增成功";
                 }
                 else
                 {
                     company.Timeset = DateTime.Now;
                     _unitOfWork.Company.Update(company);
+                    TempData["success"] = "更新成功";
                 }
 
                 await _unitOfWork.SaveAsync();
@@ -50,6 +52,15 @@ namespace POS.Areas.Setting.Controllers
             }
             else
             {
+                if (company.CompanyId != 1)
+                {
+                    TempData["error"] = "新增失敗";
+                }
+                else
+                {
+                    TempData["error"] = "更新失敗";
+                }
+
                 return View(company);
             }
         }

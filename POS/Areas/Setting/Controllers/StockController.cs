@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using POS.DataAccess.IRepository;
 using POS.Models.Setting;
 using POS.Models.Setting.SettingViewModel;
-using System.Text.Json;
 
 namespace POS.Areas.Setting.Controllers
 {
@@ -45,19 +44,30 @@ namespace POS.Areas.Setting.Controllers
         {
             if (ModelState.IsValid)
             {
-                stockVM.Stock.Timeset = DateTime.Now;
-
-                if (stockVM.Stock.Group == null)
+                if (stockVM.Stock.StockId == 0 || stockVM.Stock.StockId == null)
                 {
-                    stockVM.Stock.Group = 0;
-                }
+                    stockVM.Stock.Timeset = DateTime.Now;
 
-                _unitOfWork.Stock.Add(stockVM.Stock);
-                await _unitOfWork.SaveAsync();
-                return RedirectToAction("Index", new {id = stockVM.Stock.StockId});
+                    if (stockVM.Stock.Group == null)
+                    {
+                        stockVM.Stock.Group = 0;
+                    }
+
+                    _unitOfWork.Stock.Add(stockVM.Stock);
+                    await _unitOfWork.SaveAsync();
+                    TempData["success"] = "新增成功";
+
+                    return RedirectToAction("Index", new { id = stockVM.Stock.StockId });
+                }
+                else
+                {
+                    TempData["error"] = "新增失敗";
+                    return RedirectToAction("Index");
+                }
             }
             else
             {
+                TempData["error"] = "新增失敗";
                 return RedirectToAction("Index");
             }
         }
@@ -70,10 +80,12 @@ namespace POS.Areas.Setting.Controllers
                 stockVM.Stock.Timeset = DateTime.Now;
                 _unitOfWork.Stock.Update(stockVM.Stock);
                 await _unitOfWork.SaveAsync();
+                TempData["success"] = "更新成功";
                 return RedirectToAction("Index", new { id = stockVM.Stock.StockId });
             }
             else
             {
+                TempData["error"] = "更新失敗";
                 return RedirectToAction("Index", new { id = stockVM.Stock.StockId });
             }
         }
@@ -87,10 +99,12 @@ namespace POS.Areas.Setting.Controllers
             {
                 _unitOfWork.Stock.Remove(stockDeleted);
                 await _unitOfWork.SaveAsync();
+                TempData["success"] = "刪除成功";
                 return RedirectToAction("Index");
             }
             else
             {
+                TempData["error"] = "刪除失敗";
                 return RedirectToAction("Index");
             }
         }

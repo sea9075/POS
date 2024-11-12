@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "D:\\\u6211\u7684\u6587\u4EF6\\Desktop\\KUEI\\NewPOS\\POS\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{1ADC760F-A802-4C6F-9443-3E7F91EC9ECA}|POS\\POS.csproj|d:\\\u6211\u7684\u6587\u4EF6\\desktop\\kuei\\newpos\\pos\\pos\\areas\\setting\\controllers\\department_functioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1ADC760F-A802-4C6F-9443-3E7F91EC9ECA}|POS\\POS.csproj|solutionrelative:pos\\areas\\setting\\controllers\\department_functioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1ADC760F-A802-4C6F-9443-3E7F91EC9ECA}|POS\\POS.csproj|d:\\\u6211\u7684\u6587\u4EF6\\desktop\\kuei\\newpos\\pos\\pos\\areas\\setting\\views\\department_function\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{1ADC760F-A802-4C6F-9443-3E7F91EC9ECA}|POS\\POS.csproj|solutionrelative:pos\\areas\\setting\\views\\department_function\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1ADC760F-A802-4C6F-9443-3E7F91EC9ECA}|POS\\POS.csproj|d:\\\u6211\u7684\u6587\u4EF6\\desktop\\kuei\\newpos\\pos\\pos\\areas\\setting\\controllers\\department_functioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1ADC760F-A802-4C6F-9443-3E7F91EC9ECA}|POS\\POS.csproj|solutionrelative:pos\\areas\\setting\\controllers\\department_functioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1ADC760F-A802-4C6F-9443-3E7F91EC9ECA}|POS\\POS.csproj|d:\\\u6211\u7684\u6587\u4EF6\\desktop\\kuei\\newpos\\pos\\pos\\wwwroot\\js\\setting\\department_function.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{1ADC760F-A802-4C6F-9443-3E7F91EC9ECA}|POS\\POS.csproj|solutionrelative:pos\\wwwroot\\js\\setting\\department_function.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 183,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,15 +34,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
+              "Title": "department_function.js",
+              "DocumentMoniker": "D:\\\u6211\u7684\u6587\u4EF6\\Desktop\\KUEI\\NewPOS\\POS\\POS\\wwwroot\\js\\Setting\\department_function.js",
+              "RelativeDocumentMoniker": "POS\\wwwroot\\js\\Setting\\department_function.js",
+              "ToolTip": "D:\\\u6211\u7684\u6587\u4EF6\\Desktop\\KUEI\\NewPOS\\POS\\POS\\wwwroot\\js\\Setting\\department_function.js",
+              "RelativeToolTip": "POS\\wwwroot\\js\\Setting\\department_function.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-11-12T08:56:02.778Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Department_FunctionController.cs",
               "DocumentMoniker": "D:\\\u6211\u7684\u6587\u4EF6\\Desktop\\KUEI\\NewPOS\\POS\\POS\\Areas\\Setting\\Controllers\\Department_FunctionController.cs",
               "RelativeDocumentMoniker": "POS\\Areas\\Setting\\Controllers\\Department_FunctionController.cs",
-              "ToolTip": "D:\\\u6211\u7684\u6587\u4EF6\\Desktop\\KUEI\\NewPOS\\POS\\POS\\Areas\\Setting\\Controllers\\Department_FunctionController.cs",
-              "RelativeToolTip": "POS\\Areas\\Setting\\Controllers\\Department_FunctionController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABUAAACEAAAAAAAAAA==",
+              "ToolTip": "D:\\\u6211\u7684\u6587\u4EF6\\Desktop\\KUEI\\NewPOS\\POS\\POS\\Areas\\Setting\\Controllers\\Department_FunctionController.cs*",
+              "RelativeToolTip": "POS\\Areas\\Setting\\Controllers\\Department_FunctionController.cs*",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAQwEIAAABeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T08:30:49.61Z",
+              "WhenOpened": "2024-11-12T08:55:58.075Z",
               "EditorCaption": ""
             }
           ]
@@ -49,15 +66,15 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\\u6211\u7684\u6587\u4EF6\\Desktop\\KUEI\\NewPOS\\POS\\POS\\Areas\\Setting\\Views\\Department_Function\\Index.cshtml",
               "RelativeDocumentMoniker": "POS\\Areas\\Setting\\Views\\Department_Function\\Index.cshtml",
-              "ToolTip": "D:\\\u6211\u7684\u6587\u4EF6\\Desktop\\KUEI\\NewPOS\\POS\\POS\\Areas\\Setting\\Views\\Department_Function\\Index.cshtml*",
-              "RelativeToolTip": "POS\\Areas\\Setting\\Views\\Department_Function\\Index.cshtml*",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAAC8AAAB8AAAAAAAAAA==",
+              "ToolTip": "D:\\\u6211\u7684\u6587\u4EF6\\Desktop\\KUEI\\NewPOS\\POS\\POS\\Areas\\Setting\\Views\\Department_Function\\Index.cshtml",
+              "RelativeToolTip": "POS\\Areas\\Setting\\Views\\Department_Function\\Index.cshtml",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-08T09:17:58.111Z",
+              "WhenOpened": "2024-11-12T08:56:10.558Z",
               "EditorCaption": ""
             }
           ]

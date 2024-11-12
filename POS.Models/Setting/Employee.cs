@@ -94,6 +94,9 @@ namespace POS.Models.Setting
         [DisplayName("離職日期")]
         public DateTime? EndDate { get; set; }
 
+        [DisplayName("生日")]
+        public DateTime? BirthDate { get; set; }
+
         [Column(TypeName = "int")]
         [DisplayName("性別")]
         public Gender? Gender { get; set; }

@@ -1,0 +1,111 @@
+﻿@model Role
+
+<div class="container">
+    <form method="post" id="roleForm" asp-action="Index">
+        <input asp-for="RoleId" class="form-control" value="@Model.RoleId" type="hidden" id="ModelId" />
+        <div class="border p-3 mt-4">
+            <div class="row pb-2">
+                <h2 class="text-primary">各倉庫 - 基本資料</h2>
+                <hr />
+            </div>
+            <div class="d-flex flex-wrap mb-3">
+                <button id="addButton" class="btn btn-secondary border m-1 flex-grow-1">新增</button>
+
+                @if (Model.RoleId == 0 || Model.RoleId == null)
+                {
+                    <button id="editButton" class="btn btn-secondary border m-1 flex-grow-1" disabled>修改</button>
+                    <button id="deleteButton" class="btn btn-secondary border m-1 flex-grow-1" disabled>刪除</button>
+                }
+                else
+                {
+                    <button id="editButton" class="btn btn-secondary border m-1 flex-grow-1">修改</button>
+                    <button id="deleteButton" class="btn btn-secondary border m-1 flex-grow-1">刪除</button>
+                }
+
+                <button id="cancelButton" class="btn btn-secondary border m-1 flex-grow-1" disabled>取消</button>
+                <button id="searchButton" class="btn btn-secondary border m-1 flex-grow-1">查詢</button>
+                <button id="printButton" class="btn btn-secondary border m-1 flex-grow-1">列印</button>
+                <button type="submit" class="btn btn-primary m-1 flex-grow-1" id="submitButton" disabled>存檔</button>
+            </div>
+            <div class="mb-3 row p-1">
+                <label asp-for="ShortName" class="p-0"></label>
+                <input asp-for="ShortName" class="form-control" disabled />
+                <span asp-validation-for="ShortName" class="text-danger"></span>
+            </div>
+            <div class="mb-3 row p-1">
+                <label asp-for="Name" class="p-0"></label>
+                <input asp-for="Name" class="form-control" disabled />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="mb-3 p-1">
+                    @Html.CheckBoxFor(u => u.CanRead, new { @disabled = "disabled", @class = "form-check-input, aspCheckbox" })
+                    <label asp-for="CanRead" class="p-0"></label>
+                    <span asp-validation-for="CanRead" class="text-danger"></span>
+                </div>
+                <div class="mb-3 p-1">
+                    @Html.CheckBoxFor(u => u.CanCreate, new { @disabled = "disabled", @class = "form-check-input, aspCheckbox" })
+                    <label asp-for="CanCreate" class="p-0"></label>
+                    <span asp-validation-for="CanCreate" class="text-danger"></span>
+                </div>
+                <div class="mb-3 p-1">
+                    @Html.CheckBoxFor(u => u.CanEdit, new { @disabled = "disabled", @class = "form-check-input, aspCheckbox" })
+                    <label asp-for="CanEdit" class="p-0"></label>
+                    <span asp-validation-for="CanEdit" class="text-danger"></span>
+                </div>
+                <div class="mb-3 p-1">
+                    @Html.CheckBoxFor(u => u.CanDelete, new { @disabled = "disabled", @class = "form-check-input, aspCheckbox" })
+                    <label asp-for="CanDelete" class="p-0"></label>
+                    <span asp-validation-for="CanDelete" class="text-danger"></span>
+                </div>
+                <div class="mb-3 p-1">
+                    @Html.CheckBoxFor(u => u.CanPrint, new { @disabled = "disabled", @class = "form-check-input, aspCheckbox" })
+                    <label asp-for="CanPrint" class="p-0"></label>
+                    <span asp-validation-for="CanPrint" class="text-danger"></span>
+                </div>
+                <div class="mb-3 p-1">
+                    @Html.CheckBoxFor(u => u.CanAudit, new { @disabled = "disabled", @class = "form-check-input, aspCheckbox" })
+                    <label asp-for="CanAudit" class="p-0"></label>
+                    <span asp-validation-for="CanAudit" class="text-danger"></span>
+                </div>
+                <div class="mb-3 p-1">
+                    @Html.CheckBoxFor(u => u.CanReview, new { @disabled = "disabled", @class = "form-check-input, aspCheckbox" })
+                    <label asp-for="CanReview" class="p-0"></label>
+                    <span asp-validation-for="CanReview" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="mb-3 row p-1">
+                <label asp-for="Note" class="p-0"></label>
+                <textarea asp-for="Note" class="form-control" disabled></textarea>
+                <span asp-validation-for="Note" class="text-danger"></span>
+            </div>
+        </div>
+    </form>
+</div>
+<hr />
+<div class="container">
+    <table id="tblData" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>NO</th>
+                <th>群組編號</th>
+                <th>群組名稱</th>
+                <th>允許查詢</th>
+                <th>允許新增</th>
+                <th>允許修改</th>
+                <th>允許刪除</th>
+                <th>允許列印</th>
+                <th>允許稽核</th>
+                <th>允許覆核</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+    <script src="~/js/Setting/role.js"></script>
+}

@@ -12,8 +12,8 @@ namespace POS.Models.Setting
         public int DepartmentId { get; set; }
 
         [Required(ErrorMessage = "請輸入部門編號")]
-        [Column(TypeName = "nvarchar(5)")]
-        [StringLength(5, ErrorMessage = "不能超過 5 字")]
+        [Column(TypeName = "nvarchar(10)")]
+        [StringLength(10, ErrorMessage = "不能超過 5 字")]
         [DisplayName("*部門編號")]
         [RegularExpression(@"^(?!.*[\s.,，、；;。！？\r\n]{2})[a-zA-Z0-9\u4e00-\u9fa5\s.,，、；;。！？\r\n]*$", ErrorMessage = "僅能輸入中文、英文、數字、基本標點符號、空白和換行，且符號、空白和換行不能連續")]
         public string ShortName { get; set; }

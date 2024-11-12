@@ -225,8 +225,8 @@ namespace POS.DataAccess.Migrations
 
                     b.Property<string>("ShortName")
                         .IsRequired()
-                        .HasMaxLength(5)
-                        .HasColumnType("nvarchar(5)");
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
 
                     b.Property<DateTime>("Timeset")
                         .HasColumnType("datetime2");
@@ -248,7 +248,7 @@ namespace POS.DataAccess.Migrations
                             DepartmentId = 1,
                             Name = "Admin",
                             ShortName = "Admin",
-                            Timeset = new DateTime(2024, 11, 6, 16, 9, 39, 47, DateTimeKind.Local).AddTicks(3800)
+                            Timeset = new DateTime(2024, 11, 12, 16, 44, 11, 678, DateTimeKind.Local).AddTicks(8967)
                         });
                 });
 
@@ -283,105 +283,105 @@ namespace POS.DataAccess.Migrations
                             DepartmentId = 1,
                             FunctionId = 1,
                             IsEnable = true,
-                            Timeset = new DateTime(2024, 11, 6, 16, 9, 39, 47, DateTimeKind.Local).AddTicks(6411)
+                            Timeset = new DateTime(2024, 11, 12, 16, 44, 11, 679, DateTimeKind.Local).AddTicks(2533)
                         },
                         new
                         {
                             DepartmentId = 1,
                             FunctionId = 2,
                             IsEnable = true,
-                            Timeset = new DateTime(2024, 11, 6, 16, 9, 39, 47, DateTimeKind.Local).AddTicks(6415)
+                            Timeset = new DateTime(2024, 11, 12, 16, 44, 11, 679, DateTimeKind.Local).AddTicks(2541)
                         },
                         new
                         {
                             DepartmentId = 1,
                             FunctionId = 3,
                             IsEnable = true,
-                            Timeset = new DateTime(2024, 11, 6, 16, 9, 39, 47, DateTimeKind.Local).AddTicks(6416)
+                            Timeset = new DateTime(2024, 11, 12, 16, 44, 11, 679, DateTimeKind.Local).AddTicks(2543)
                         },
                         new
                         {
                             DepartmentId = 1,
                             FunctionId = 4,
                             IsEnable = true,
-                            Timeset = new DateTime(2024, 11, 6, 16, 9, 39, 47, DateTimeKind.Local).AddTicks(6417)
+                            Timeset = new DateTime(2024, 11, 12, 16, 44, 11, 679, DateTimeKind.Local).AddTicks(2544)
                         },
                         new
                         {
                             DepartmentId = 1,
                             FunctionId = 5,
                             IsEnable = true,
-                            Timeset = new DateTime(2024, 11, 6, 16, 9, 39, 47, DateTimeKind.Local).AddTicks(6418)
+                            Timeset = new DateTime(2024, 11, 12, 16, 44, 11, 679, DateTimeKind.Local).AddTicks(2545)
                         },
                         new
                         {
                             DepartmentId = 1,
                             FunctionId = 6,
                             IsEnable = true,
-                            Timeset = new DateTime(2024, 11, 6, 16, 9, 39, 47, DateTimeKind.Local).AddTicks(6419)
+                            Timeset = new DateTime(2024, 11, 12, 16, 44, 11, 679, DateTimeKind.Local).AddTicks(2546)
                         },
                         new
                         {
                             DepartmentId = 1,
                             FunctionId = 7,
                             IsEnable = true,
-                            Timeset = new DateTime(2024, 11, 6, 16, 9, 39, 47, DateTimeKind.Local).AddTicks(6420)
+                            Timeset = new DateTime(2024, 11, 12, 16, 44, 11, 679, DateTimeKind.Local).AddTicks(2547)
                         },
                         new
                         {
                             DepartmentId = 1,
                             FunctionId = 8,
                             IsEnable = true,
-                            Timeset = new DateTime(2024, 11, 6, 16, 9, 39, 47, DateTimeKind.Local).AddTicks(6421)
+                            Timeset = new DateTime(2024, 11, 12, 16, 44, 11, 679, DateTimeKind.Local).AddTicks(2548)
                         },
                         new
                         {
                             DepartmentId = 1,
                             FunctionId = 9,
                             IsEnable = true,
-                            Timeset = new DateTime(2024, 11, 6, 16, 9, 39, 47, DateTimeKind.Local).AddTicks(6422)
+                            Timeset = new DateTime(2024, 11, 12, 16, 44, 11, 679, DateTimeKind.Local).AddTicks(2549)
                         },
                         new
                         {
                             DepartmentId = 1,
                             FunctionId = 10,
                             IsEnable = true,
-                            Timeset = new DateTime(2024, 11, 6, 16, 9, 39, 47, DateTimeKind.Local).AddTicks(6423)
+                            Timeset = new DateTime(2024, 11, 12, 16, 44, 11, 679, DateTimeKind.Local).AddTicks(2550)
                         },
                         new
                         {
                             DepartmentId = 1,
                             FunctionId = 11,
                             IsEnable = true,
-                            Timeset = new DateTime(2024, 11, 6, 16, 9, 39, 47, DateTimeKind.Local).AddTicks(6424)
+                            Timeset = new DateTime(2024, 11, 12, 16, 44, 11, 679, DateTimeKind.Local).AddTicks(2551)
                         },
                         new
                         {
                             DepartmentId = 1,
                             FunctionId = 12,
                             IsEnable = true,
-                            Timeset = new DateTime(2024, 11, 6, 16, 9, 39, 47, DateTimeKind.Local).AddTicks(6425)
+                            Timeset = new DateTime(2024, 11, 12, 16, 44, 11, 679, DateTimeKind.Local).AddTicks(2552)
                         },
                         new
                         {
                             DepartmentId = 1,
                             FunctionId = 13,
                             IsEnable = true,
-                            Timeset = new DateTime(2024, 11, 6, 16, 9, 39, 47, DateTimeKind.Local).AddTicks(6426)
+                            Timeset = new DateTime(2024, 11, 12, 16, 44, 11, 679, DateTimeKind.Local).AddTicks(2553)
                         },
                         new
                         {
                             DepartmentId = 1,
                             FunctionId = 14,
                             IsEnable = true,
-                            Timeset = new DateTime(2024, 11, 6, 16, 9, 39, 47, DateTimeKind.Local).AddTicks(6427)
+                            Timeset = new DateTime(2024, 11, 12, 16, 44, 11, 679, DateTimeKind.Local).AddTicks(2554)
                         },
                         new
                         {
                             DepartmentId = 1,
                             FunctionId = 15,
                             IsEnable = true,
-                            Timeset = new DateTime(2024, 11, 6, 16, 9, 39, 47, DateTimeKind.Local).AddTicks(6428)
+                            Timeset = new DateTime(2024, 11, 12, 16, 44, 11, 679, DateTimeKind.Local).AddTicks(2555)
                         });
                 });
 
@@ -397,6 +397,9 @@ namespace POS.DataAccess.Migrations
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
+
+                    b.Property<DateTime?>("BirthDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Cellphone")
                         .IsRequired()
@@ -503,7 +506,7 @@ namespace POS.DataAccess.Migrations
                             Name = "Admin",
                             PermanentAddress = "*",
                             StartDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Timeset = new DateTime(2024, 11, 6, 16, 9, 39, 47, DateTimeKind.Local).AddTicks(3778)
+                            Timeset = new DateTime(2024, 11, 12, 16, 44, 11, 678, DateTimeKind.Local).AddTicks(8941)
                         });
                 });
 
@@ -570,7 +573,7 @@ namespace POS.DataAccess.Migrations
                             HashPassword = "Jxwlw+635GmPXCaLI+JE5lfM/kUoiMa5roykjbAfrPU=",
                             LimitCheckPurchaseDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             RoleId = 1,
-                            Timeset = new DateTime(2024, 11, 6, 16, 9, 39, 47, DateTimeKind.Local).AddTicks(3625)
+                            Timeset = new DateTime(2024, 11, 12, 16, 44, 11, 678, DateTimeKind.Local).AddTicks(8777)
                         });
                 });
 
@@ -611,7 +614,7 @@ namespace POS.DataAccess.Migrations
                             FunctionChineseName = "總公司 - 基本資料",
                             FunctionName = "Company",
                             Group = 0,
-                            Timeset = new DateTime(2024, 11, 6, 16, 9, 39, 47, DateTimeKind.Local).AddTicks(3847)
+                            Timeset = new DateTime(2024, 11, 12, 16, 44, 11, 678, DateTimeKind.Local).AddTicks(9019)
                         },
                         new
                         {
@@ -619,7 +622,7 @@ namespace POS.DataAccess.Migrations
                             FunctionChineseName = "條碼成本編碼",
                             FunctionName = "CostBarcode",
                             Group = 0,
-                            Timeset = new DateTime(2024, 11, 6, 16, 9, 39, 47, DateTimeKind.Local).AddTicks(3850)
+                            Timeset = new DateTime(2024, 11, 12, 16, 44, 11, 678, DateTimeKind.Local).AddTicks(9021)
                         },
                         new
                         {
@@ -627,7 +630,7 @@ namespace POS.DataAccess.Migrations
                             FunctionChineseName = "信用卡手續費",
                             FunctionName = "CreditCardFee",
                             Group = 0,
-                            Timeset = new DateTime(2024, 11, 6, 16, 9, 39, 47, DateTimeKind.Local).AddTicks(3851)
+                            Timeset = new DateTime(2024, 11, 12, 16, 44, 11, 678, DateTimeKind.Local).AddTicks(9022)
                         },
                         new
                         {
@@ -635,7 +638,7 @@ namespace POS.DataAccess.Migrations
                             FunctionChineseName = "公司部門資料",
                             FunctionName = "Department",
                             Group = 0,
-                            Timeset = new DateTime(2024, 11, 6, 16, 9, 39, 47, DateTimeKind.Local).AddTicks(3852)
+                            Timeset = new DateTime(2024, 11, 12, 16, 44, 11, 678, DateTimeKind.Local).AddTicks(9023)
                         },
                         new
                         {
@@ -643,7 +646,7 @@ namespace POS.DataAccess.Migrations
                             FunctionChineseName = "",
                             FunctionName = "Department_Function",
                             Group = 0,
-                            Timeset = new DateTime(2024, 11, 6, 16, 9, 39, 47, DateTimeKind.Local).AddTicks(3853)
+                            Timeset = new DateTime(2024, 11, 12, 16, 44, 11, 678, DateTimeKind.Local).AddTicks(9024)
                         },
                         new
                         {
@@ -651,7 +654,7 @@ namespace POS.DataAccess.Migrations
                             FunctionChineseName = "員工基本資料",
                             FunctionName = "Employee",
                             Group = 0,
-                            Timeset = new DateTime(2024, 11, 6, 16, 9, 39, 47, DateTimeKind.Local).AddTicks(3854)
+                            Timeset = new DateTime(2024, 11, 12, 16, 44, 11, 678, DateTimeKind.Local).AddTicks(9025)
                         },
                         new
                         {
@@ -659,7 +662,7 @@ namespace POS.DataAccess.Migrations
                             FunctionChineseName = "員工登入資料",
                             FunctionName = "EmployeeLogin",
                             Group = 0,
-                            Timeset = new DateTime(2024, 11, 6, 16, 9, 39, 47, DateTimeKind.Local).AddTicks(3855)
+                            Timeset = new DateTime(2024, 11, 12, 16, 44, 11, 678, DateTimeKind.Local).AddTicks(9026)
                         },
                         new
                         {
@@ -667,7 +670,7 @@ namespace POS.DataAccess.Migrations
                             FunctionChineseName = "程式功能",
                             FunctionName = "Function",
                             Group = 0,
-                            Timeset = new DateTime(2024, 11, 6, 16, 9, 39, 47, DateTimeKind.Local).AddTicks(3856)
+                            Timeset = new DateTime(2024, 11, 12, 16, 44, 11, 678, DateTimeKind.Local).AddTicks(9027)
                         },
                         new
                         {
@@ -675,7 +678,7 @@ namespace POS.DataAccess.Migrations
                             FunctionChineseName = "公司發票資料",
                             FunctionName = "InvoiceInfo",
                             Group = 0,
-                            Timeset = new DateTime(2024, 11, 6, 16, 9, 39, 47, DateTimeKind.Local).AddTicks(3857)
+                            Timeset = new DateTime(2024, 11, 12, 16, 44, 11, 678, DateTimeKind.Local).AddTicks(9028)
                         },
                         new
                         {
@@ -683,7 +686,7 @@ namespace POS.DataAccess.Migrations
                             FunctionChineseName = "系統 IP 權限設定",
                             FunctionName = "IP_Permission",
                             Group = 0,
-                            Timeset = new DateTime(2024, 11, 6, 16, 9, 39, 47, DateTimeKind.Local).AddTicks(3858)
+                            Timeset = new DateTime(2024, 11, 12, 16, 44, 11, 678, DateTimeKind.Local).AddTicks(9030)
                         },
                         new
                         {
@@ -691,7 +694,7 @@ namespace POS.DataAccess.Migrations
                             FunctionChineseName = "群組資料設定",
                             FunctionName = "Role",
                             Group = 0,
-                            Timeset = new DateTime(2024, 11, 6, 16, 9, 39, 47, DateTimeKind.Local).AddTicks(3859)
+                            Timeset = new DateTime(2024, 11, 12, 16, 44, 11, 678, DateTimeKind.Local).AddTicks(9031)
                         },
                         new
                         {
@@ -699,7 +702,7 @@ namespace POS.DataAccess.Migrations
                             FunctionChineseName = "各店點 - 基本資料",
                             FunctionName = "Shop",
                             Group = 0,
-                            Timeset = new DateTime(2024, 11, 6, 16, 9, 39, 47, DateTimeKind.Local).AddTicks(3860)
+                            Timeset = new DateTime(2024, 11, 12, 16, 44, 11, 678, DateTimeKind.Local).AddTicks(9031)
                         },
                         new
                         {
@@ -707,7 +710,7 @@ namespace POS.DataAccess.Migrations
                             FunctionChineseName = "各店點 - 目標設定",
                             FunctionName = "ShopSalesTarget",
                             Group = 0,
-                            Timeset = new DateTime(2024, 11, 6, 16, 9, 39, 47, DateTimeKind.Local).AddTicks(3861)
+                            Timeset = new DateTime(2024, 11, 12, 16, 44, 11, 678, DateTimeKind.Local).AddTicks(9032)
                         },
                         new
                         {
@@ -715,7 +718,7 @@ namespace POS.DataAccess.Migrations
                             FunctionChineseName = "各倉庫 - 基本資料",
                             FunctionName = "Stock",
                             Group = 0,
-                            Timeset = new DateTime(2024, 11, 6, 16, 9, 39, 47, DateTimeKind.Local).AddTicks(3862)
+                            Timeset = new DateTime(2024, 11, 12, 16, 44, 11, 678, DateTimeKind.Local).AddTicks(9033)
                         },
                         new
                         {
@@ -723,7 +726,7 @@ namespace POS.DataAccess.Migrations
                             FunctionChineseName = "門號系統商設定",
                             FunctionName = "TelecomSetting",
                             Group = 0,
-                            Timeset = new DateTime(2024, 11, 6, 16, 9, 39, 47, DateTimeKind.Local).AddTicks(3862)
+                            Timeset = new DateTime(2024, 11, 12, 16, 44, 11, 678, DateTimeKind.Local).AddTicks(9034)
                         });
                 });
 
@@ -835,8 +838,8 @@ namespace POS.DataAccess.Migrations
 
                     b.Property<string>("ShortName")
                         .IsRequired()
-                        .HasMaxLength(5)
-                        .HasColumnType("nvarchar(5)");
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
 
                     b.Property<DateTime>("Timeset")
                         .HasColumnType("datetime2");
@@ -861,7 +864,7 @@ namespace POS.DataAccess.Migrations
                             CanReview = true,
                             Name = "Admin",
                             ShortName = "Admin",
-                            Timeset = new DateTime(2024, 11, 6, 16, 9, 39, 47, DateTimeKind.Local).AddTicks(3828)
+                            Timeset = new DateTime(2024, 11, 12, 16, 44, 11, 678, DateTimeKind.Local).AddTicks(8996)
                         });
                 });
 

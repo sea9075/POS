@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/POS.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="//cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" asp-append-version="true" />
 </head>
 <body>
     <header>
@@ -27,6 +28,8 @@
                                 <li><a class="dropdown-item" asp-area="Setting" asp-controller="Stock" asp-action="Index">各倉庫 - 資本資料</a></li>
                                 <li><a class="dropdown-item" asp-area="Setting" asp-controller="Department" asp-action="Index">總公司 - 部門資料</a></li>
                                 <li><a class="dropdown-item" asp-area="Setting" asp-controller="Department_Function" asp-action="Index">部門權限設定</a></li>
+                                <li><a class="dropdown-item" asp-area="Setting" asp-controller="Role" asp-action="Index">群組權限設定</a></li>
+                                <li><a class="dropdown-item" asp-area="Setting" asp-controller="Employee" asp-action="Index">員工資本資料</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -48,6 +51,7 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
+            <partial name="_Notification" />
             @RenderBody()
         </main>
     </div>
