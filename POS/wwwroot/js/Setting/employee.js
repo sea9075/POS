@@ -19,29 +19,10 @@ function loadDataTable() {
                 }
             },
             { data: 'name' },
-            {
-                data: 'group',
-                "render": function (data) {
-                    return EmployeeGroup[data];
-                }
-            },
             { data: 'phone' },
-            { data: 'fax' },
-            { data: 'address' },
+            { data: 'cellphone'},
             {
-                data: 'isShowFront',
-                "render": function (data) {
-                    return data ? '是' : '否';
-                }
-            },
-            {
-                data: 'isShowHeadquarters',
-                "render": function (data) {
-                    return data ? '是' : '否';
-                }
-            },
-            {
-                data: 'stockId',
+                data: 'employeeId',
                 "render": function (data) {
                     return `<a href="/Setting/Employee/Index/${data}" onclick="selectItem()">選擇</a>`
                 }
@@ -50,23 +31,30 @@ function loadDataTable() {
     })
 }
 
-// 取得所有的 input，不包含 Checkbox
-var inputTags = document.querySelectorAll("input:not([type='checkbox']):not([type='hidden'])");
+// 取得所有的 input，不包含 hidden
+var inputTags = document.querySelectorAll("input:not([type='hidden'])");
 
-// 取得所有的 checkbox
-var checkboxTags = document.querySelectorAll("input[type='checkbox']");
+// 取得 checkbox
+var checkboxTag = document.querySelector("input[type='checkbox']");
 
-// 取得所有的 select 
-var selectTags = document.querySelectorAll("select");
+// 取得 select 
+var selectTag = document.querySelector("select");
+
+// 取得 textarea
+var textareaTag = document.querySelector("textarea");
+
+// 取得 img
+var imgTag = document.querySelector("img");
 
 // 取得 from
-var aspForm = document.getElementById("stockForm");
+var aspForm = document.getElementById("employeeForm");
 
 // 取得 EmployeeId
 var inputId = document.getElementById("InputId");
 
-// 取得新增、刪除、取消、查詢、列印和存檔的按鈕
+// 取得新增、修改、刪除、取消、查詢、列印和存檔的按鈕
 var createButton = document.getElementById("createButton");
+var editButton = document.getElementById("editButton");
 var deleteButton = document.getElementById("deleteButton");
 var cancelButton = document.getElementById("cancelButton");
 var searchButton = document.getElementById("searchButton");
@@ -82,19 +70,25 @@ function add() {
         inputTags[i].value = "";
     }
 
-    for (var i = 0; i < checkboxTags.length; i++) {
-        checkboxTags[i].removeAttribute("disabled");
-        checkboxTags[i].checked = false;
-    }
+    checkboxTag.removeAttribute("disabled");
+    checkboxTag.checked = false;
 
-    for (var i = 0; i < selectTags.length; i++) {
-        selectTags[i].removeAttribute("disabled");
-    }
+    selectTag.removeAttribute("disabled");
 
+    textareaTag.removeAttribute("disabled");
+    textareaTag.value = "";
+
+    // 移除 img
+    if (imgTag) {
+        imgTag.remove();
+    }
+    
     // 取消 submit 和 cancel 的 disabled
     submitButton.removeAttribute("disabled");
     cancelButton.removeAttribute("disabled");
-    // 增加 search 和 print 的 disabled
+    // 增加 edit、delete、search、print 的 disabled
+    editButton.setAttribute("disabled", "disabled");
+    deleteButton.setAttribute("disabled", "disabled");
     searchButton.setAttribute("disabled", "disabled");
     printButton.setAttribute("disabled", "disabled");
 
@@ -117,13 +111,9 @@ function edit() {
         inputTags[i].removeAttribute("disabled");
     }
 
-    for (var i = 0; i < checkboxTags.length; i++) {
-        checkboxTags[i].removeAttribute("disabled");
-    }
+    checkboxTag.removeAttribute("disabled");
 
-    for (var i = 0; i < selectTags.length; i++) {
-        selectTags[i].removeAttribute("disabled");
-    }
+    selectTag.removeAttribute("disabled");
 
     // 取消 submit 和 cancel 的 disabled
     submitButton.removeAttribute("disabled");

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace POS.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class AddSettingModelsToDb : Migration
+    public partial class AddModelsToDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,6 +17,8 @@ namespace POS.DataAccess.Migrations
                 name: "Company",
                 columns: table => new
                 {
+                    CompanyId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     Phone = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false),
                     Fax = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false),
@@ -28,7 +30,7 @@ namespace POS.DataAccess.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Company", x => x.Name);
+                    table.PrimaryKey("PK_Company", x => x.CompanyId);
                 });
 
             migrationBuilder.CreateTable(
@@ -83,7 +85,7 @@ namespace POS.DataAccess.Migrations
                 {
                     DepartmentId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ShortName = table.Column<string>(type: "nvarchar(5)", maxLength: 5, nullable: false),
+                    ShortName = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
                     Name = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     Phone = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: true),
                     Ext = table.Column<string>(type: "nvarchar(5)", maxLength: 5, nullable: true),
@@ -117,6 +119,7 @@ namespace POS.DataAccess.Migrations
                     Education = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EndDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    BirthDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Gender = table.Column<int>(type: "int", nullable: true),
                     Photo = table.Column<string>(type: "nvarchar(255)", nullable: true),
                     Skill = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
@@ -137,6 +140,8 @@ namespace POS.DataAccess.Migrations
                     FunctionId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FunctionName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    FunctionChineseName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    Group = table.Column<int>(type: "int", nullable: false),
                     Timeset = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -182,7 +187,7 @@ namespace POS.DataAccess.Migrations
                 {
                     RoleId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ShortName = table.Column<string>(type: "nvarchar(5)", maxLength: 5, nullable: false),
+                    ShortName = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
                     Name = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
                     CanRead = table.Column<bool>(type: "bit", nullable: false),
                     CanCreate = table.Column<bool>(type: "bit", nullable: false),
@@ -324,6 +329,8 @@ namespace POS.DataAccess.Migrations
                     Address = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     Group = table.Column<int>(type: "int", nullable: true),
                     ShopId = table.Column<int>(type: "int", nullable: true),
+                    IsShowFront = table.Column<bool>(type: "bit", nullable: false),
+                    IsShowHeadquarters = table.Column<bool>(type: "bit", nullable: false),
                     Timeset = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -364,66 +371,66 @@ namespace POS.DataAccess.Migrations
             migrationBuilder.InsertData(
                 table: "Department",
                 columns: new[] { "DepartmentId", "Address", "Ext", "Fax", "Name", "Note", "Phone", "ShortName", "Timeset", "Url" },
-                values: new object[] { 1, null, null, null, "Admin", null, null, "Admin", new DateTime(2024, 10, 29, 17, 50, 45, 407, DateTimeKind.Local).AddTicks(7335), null });
+                values: new object[] { 1, null, null, null, "Admin", null, null, "Admin", new DateTime(2024, 11, 13, 13, 10, 45, 745, DateTimeKind.Local).AddTicks(9861), null });
 
             migrationBuilder.InsertData(
                 table: "Employee",
-                columns: new[] { "EmployeeId", "Address", "Cellphone", "Education", "Email", "EmerencyContact", "EmerencyContactPhone", "EndDate", "Gender", "GrossProfit", "ID_Number", "IsMarried", "Name", "Note", "PermanentAddress", "Phone", "Photo", "SalesTarget", "Skill", "StartDate", "Timeset" },
-                values: new object[] { 1, "*", "*", "*", "*", "*", "*", null, null, null, "*", false, "Admin", null, "*", null, null, null, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 10, 29, 17, 50, 45, 407, DateTimeKind.Local).AddTicks(7311) });
+                columns: new[] { "EmployeeId", "Address", "BirthDate", "Cellphone", "Education", "Email", "EmerencyContact", "EmerencyContactPhone", "EndDate", "Gender", "GrossProfit", "ID_Number", "IsMarried", "Name", "Note", "PermanentAddress", "Phone", "Photo", "SalesTarget", "Skill", "StartDate", "Timeset" },
+                values: new object[] { 1, "*", null, "*", "*", "*", "*", "*", null, null, null, "*", false, "Admin", null, "*", null, null, null, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 11, 13, 13, 10, 45, 745, DateTimeKind.Local).AddTicks(9839) });
 
             migrationBuilder.InsertData(
                 table: "Function",
-                columns: new[] { "FunctionId", "FunctionName", "Timeset" },
+                columns: new[] { "FunctionId", "FunctionChineseName", "FunctionName", "Group", "Timeset" },
                 values: new object[,]
                 {
-                    { 1, "Company", new DateTime(2024, 10, 29, 17, 50, 45, 407, DateTimeKind.Local).AddTicks(7380) },
-                    { 2, "CostBarcode", new DateTime(2024, 10, 29, 17, 50, 45, 407, DateTimeKind.Local).AddTicks(7381) },
-                    { 3, "CreditCardFee", new DateTime(2024, 10, 29, 17, 50, 45, 407, DateTimeKind.Local).AddTicks(7383) },
-                    { 4, "Department", new DateTime(2024, 10, 29, 17, 50, 45, 407, DateTimeKind.Local).AddTicks(7384) },
-                    { 5, "Department_Function", new DateTime(2024, 10, 29, 17, 50, 45, 407, DateTimeKind.Local).AddTicks(7385) },
-                    { 6, "Employee", new DateTime(2024, 10, 29, 17, 50, 45, 407, DateTimeKind.Local).AddTicks(7386) },
-                    { 7, "EmployeeLogin", new DateTime(2024, 10, 29, 17, 50, 45, 407, DateTimeKind.Local).AddTicks(7387) },
-                    { 8, "Function", new DateTime(2024, 10, 29, 17, 50, 45, 407, DateTimeKind.Local).AddTicks(7388) },
-                    { 9, "InvoiceInfo", new DateTime(2024, 10, 29, 17, 50, 45, 407, DateTimeKind.Local).AddTicks(7389) },
-                    { 10, "IP_Permission", new DateTime(2024, 10, 29, 17, 50, 45, 407, DateTimeKind.Local).AddTicks(7390) },
-                    { 11, "Role", new DateTime(2024, 10, 29, 17, 50, 45, 407, DateTimeKind.Local).AddTicks(7391) },
-                    { 12, "Shop", new DateTime(2024, 10, 29, 17, 50, 45, 407, DateTimeKind.Local).AddTicks(7392) },
-                    { 13, "ShopSalesTarget", new DateTime(2024, 10, 29, 17, 50, 45, 407, DateTimeKind.Local).AddTicks(7393) },
-                    { 14, "Stock", new DateTime(2024, 10, 29, 17, 50, 45, 407, DateTimeKind.Local).AddTicks(7394) },
-                    { 15, "TelecomSetting", new DateTime(2024, 10, 29, 17, 50, 45, 407, DateTimeKind.Local).AddTicks(7395) }
+                    { 1, "總公司 - 基本資料", "Company", 0, new DateTime(2024, 11, 13, 13, 10, 45, 745, DateTimeKind.Local).AddTicks(9915) },
+                    { 2, "條碼成本編碼", "CostBarcode", 0, new DateTime(2024, 11, 13, 13, 10, 45, 745, DateTimeKind.Local).AddTicks(9916) },
+                    { 3, "信用卡手續費", "CreditCardFee", 0, new DateTime(2024, 11, 13, 13, 10, 45, 745, DateTimeKind.Local).AddTicks(9917) },
+                    { 4, "公司部門資料", "Department", 0, new DateTime(2024, 11, 13, 13, 10, 45, 745, DateTimeKind.Local).AddTicks(9918) },
+                    { 5, "", "Department_Function", 0, new DateTime(2024, 11, 13, 13, 10, 45, 745, DateTimeKind.Local).AddTicks(9920) },
+                    { 6, "員工基本資料", "Employee", 0, new DateTime(2024, 11, 13, 13, 10, 45, 745, DateTimeKind.Local).AddTicks(9921) },
+                    { 7, "員工登入資料", "EmployeeLogin", 0, new DateTime(2024, 11, 13, 13, 10, 45, 745, DateTimeKind.Local).AddTicks(9922) },
+                    { 8, "程式功能", "Function", 0, new DateTime(2024, 11, 13, 13, 10, 45, 745, DateTimeKind.Local).AddTicks(9923) },
+                    { 9, "公司發票資料", "InvoiceInfo", 0, new DateTime(2024, 11, 13, 13, 10, 45, 745, DateTimeKind.Local).AddTicks(9925) },
+                    { 10, "系統 IP 權限設定", "IP_Permission", 0, new DateTime(2024, 11, 13, 13, 10, 45, 745, DateTimeKind.Local).AddTicks(9926) },
+                    { 11, "群組資料設定", "Role", 0, new DateTime(2024, 11, 13, 13, 10, 45, 745, DateTimeKind.Local).AddTicks(9927) },
+                    { 12, "各店點 - 基本資料", "Shop", 0, new DateTime(2024, 11, 13, 13, 10, 45, 745, DateTimeKind.Local).AddTicks(9928) },
+                    { 13, "各店點 - 目標設定", "ShopSalesTarget", 0, new DateTime(2024, 11, 13, 13, 10, 45, 745, DateTimeKind.Local).AddTicks(9929) },
+                    { 14, "各倉庫 - 基本資料", "Stock", 0, new DateTime(2024, 11, 13, 13, 10, 45, 745, DateTimeKind.Local).AddTicks(9930) },
+                    { 15, "門號系統商設定", "TelecomSetting", 0, new DateTime(2024, 11, 13, 13, 10, 45, 745, DateTimeKind.Local).AddTicks(9930) }
                 });
 
             migrationBuilder.InsertData(
                 table: "Role",
                 columns: new[] { "RoleId", "CanAudit", "CanCreate", "CanDelete", "CanEdit", "CanPrint", "CanRead", "CanReview", "Name", "Note", "ShortName", "Timeset" },
-                values: new object[] { 1, true, true, true, true, true, true, true, "Admin", null, "Admin", new DateTime(2024, 10, 29, 17, 50, 45, 407, DateTimeKind.Local).AddTicks(7363) });
+                values: new object[] { 1, true, true, true, true, true, true, true, "Admin", null, "Admin", new DateTime(2024, 11, 13, 13, 10, 45, 745, DateTimeKind.Local).AddTicks(9892) });
 
             migrationBuilder.InsertData(
                 table: "Department_Function",
                 columns: new[] { "DepartmentId", "FunctionId", "IsEnable", "Timeset" },
                 values: new object[,]
                 {
-                    { 1, 1, true, new DateTime(2024, 10, 29, 17, 50, 45, 408, DateTimeKind.Local).AddTicks(212) },
-                    { 1, 2, true, new DateTime(2024, 10, 29, 17, 50, 45, 408, DateTimeKind.Local).AddTicks(218) },
-                    { 1, 3, true, new DateTime(2024, 10, 29, 17, 50, 45, 408, DateTimeKind.Local).AddTicks(219) },
-                    { 1, 4, true, new DateTime(2024, 10, 29, 17, 50, 45, 408, DateTimeKind.Local).AddTicks(220) },
-                    { 1, 5, true, new DateTime(2024, 10, 29, 17, 50, 45, 408, DateTimeKind.Local).AddTicks(221) },
-                    { 1, 6, true, new DateTime(2024, 10, 29, 17, 50, 45, 408, DateTimeKind.Local).AddTicks(222) },
-                    { 1, 7, true, new DateTime(2024, 10, 29, 17, 50, 45, 408, DateTimeKind.Local).AddTicks(223) },
-                    { 1, 8, true, new DateTime(2024, 10, 29, 17, 50, 45, 408, DateTimeKind.Local).AddTicks(223) },
-                    { 1, 9, true, new DateTime(2024, 10, 29, 17, 50, 45, 408, DateTimeKind.Local).AddTicks(224) },
-                    { 1, 10, true, new DateTime(2024, 10, 29, 17, 50, 45, 408, DateTimeKind.Local).AddTicks(225) },
-                    { 1, 11, true, new DateTime(2024, 10, 29, 17, 50, 45, 408, DateTimeKind.Local).AddTicks(226) },
-                    { 1, 12, true, new DateTime(2024, 10, 29, 17, 50, 45, 408, DateTimeKind.Local).AddTicks(228) },
-                    { 1, 13, true, new DateTime(2024, 10, 29, 17, 50, 45, 408, DateTimeKind.Local).AddTicks(229) },
-                    { 1, 14, true, new DateTime(2024, 10, 29, 17, 50, 45, 408, DateTimeKind.Local).AddTicks(230) },
-                    { 1, 15, true, new DateTime(2024, 10, 29, 17, 50, 45, 408, DateTimeKind.Local).AddTicks(231) }
+                    { 1, 1, true, new DateTime(2024, 11, 13, 13, 10, 45, 746, DateTimeKind.Local).AddTicks(3069) },
+                    { 1, 2, true, new DateTime(2024, 11, 13, 13, 10, 45, 746, DateTimeKind.Local).AddTicks(3075) },
+                    { 1, 3, true, new DateTime(2024, 11, 13, 13, 10, 45, 746, DateTimeKind.Local).AddTicks(3076) },
+                    { 1, 4, true, new DateTime(2024, 11, 13, 13, 10, 45, 746, DateTimeKind.Local).AddTicks(3077) },
+                    { 1, 5, true, new DateTime(2024, 11, 13, 13, 10, 45, 746, DateTimeKind.Local).AddTicks(3078) },
+                    { 1, 6, true, new DateTime(2024, 11, 13, 13, 10, 45, 746, DateTimeKind.Local).AddTicks(3079) },
+                    { 1, 7, true, new DateTime(2024, 11, 13, 13, 10, 45, 746, DateTimeKind.Local).AddTicks(3080) },
+                    { 1, 8, true, new DateTime(2024, 11, 13, 13, 10, 45, 746, DateTimeKind.Local).AddTicks(3081) },
+                    { 1, 9, true, new DateTime(2024, 11, 13, 13, 10, 45, 746, DateTimeKind.Local).AddTicks(3082) },
+                    { 1, 10, true, new DateTime(2024, 11, 13, 13, 10, 45, 746, DateTimeKind.Local).AddTicks(3083) },
+                    { 1, 11, true, new DateTime(2024, 11, 13, 13, 10, 45, 746, DateTimeKind.Local).AddTicks(3085) },
+                    { 1, 12, true, new DateTime(2024, 11, 13, 13, 10, 45, 746, DateTimeKind.Local).AddTicks(3087) },
+                    { 1, 13, true, new DateTime(2024, 11, 13, 13, 10, 45, 746, DateTimeKind.Local).AddTicks(3088) },
+                    { 1, 14, true, new DateTime(2024, 11, 13, 13, 10, 45, 746, DateTimeKind.Local).AddTicks(3089) },
+                    { 1, 15, true, new DateTime(2024, 11, 13, 13, 10, 45, 746, DateTimeKind.Local).AddTicks(3090) }
                 });
 
             migrationBuilder.InsertData(
                 table: "EmployeeLogin",
                 columns: new[] { "EmployeeLoginId", "Account", "DepartmentId", "EditSafetyStock", "EmployeeId", "HashPassword", "LimitCheckPurchaseDate", "LimitEditSalesOrder", "RoleId", "Timeset" },
-                values: new object[] { 1, "Administrator", 1, null, 1, "Jxwlw+635GmPXCaLI+JE5lfM/kUoiMa5roykjbAfrPU=", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 1, new DateTime(2024, 10, 29, 17, 50, 45, 407, DateTimeKind.Local).AddTicks(7118) });
+                values: new object[] { 1, "Administrator", 1, null, 1, "Jxwlw+635GmPXCaLI+JE5lfM/kUoiMa5roykjbAfrPU=", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 1, new DateTime(2024, 11, 13, 13, 10, 45, 745, DateTimeKind.Local).AddTicks(9670) });
 
             migrationBuilder.CreateIndex(
                 name: "IX_CostBarcode_BarcodeType",

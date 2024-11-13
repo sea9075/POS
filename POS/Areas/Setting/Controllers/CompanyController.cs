@@ -15,21 +15,22 @@ namespace POS.Areas.Setting.Controllers
         }
 
         public async Task<IActionResult> Index(int? id)
-        {
-            if (await _unitOfWork.Company.AnyAsync(u => u.CompanyId == id) == false)
+        { 
+            Company company = await _unitOfWork.Company.GetAsync(u => u.CompanyId == 1);
+
+            if (company == null)
             {
-                Company company = new Company();
+                company = new Company();
                 return View(company);
             }
             else
             {
-                Company company = await _unitOfWork.Company.GetAsync(u => u.CompanyId == 1);
                 return View(company);
             }
         }
 
         [HttpPost]
-        public async Task<IActionResult> Index(Company company)
+        public async Task<IActionResult> Upsert(Company company)
         {
             if (ModelState.IsValid)
             {
@@ -48,7 +49,7 @@ namespace POS.Areas.Setting.Controllers
 
                 await _unitOfWork.SaveAsync();
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new {id = 1});
             }
             else
             {

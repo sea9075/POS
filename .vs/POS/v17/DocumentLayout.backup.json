@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "D:\\\u6211\u7684\u6587\u4EF6\\Desktop\\KUEI\\NewPOS\\POS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1ADC760F-A802-4C6F-9443-3E7F91EC9ECA}|POS\\POS.csproj|d:\\\u6211\u7684\u6587\u4EF6\\desktop\\kuei\\newpos\\pos\\pos\\areas\\setting\\controllers\\department_functioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1ADC760F-A802-4C6F-9443-3E7F91EC9ECA}|POS\\POS.csproj|solutionrelative:pos\\areas\\setting\\controllers\\department_functioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1ADC760F-A802-4C6F-9443-3E7F91EC9ECA}|POS\\POS.csproj|d:\\\u6211\u7684\u6587\u4EF6\\desktop\\kuei\\newpos\\pos\\pos\\wwwroot\\js\\setting\\stock.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{1ADC760F-A802-4C6F-9443-3E7F91EC9ECA}|POS\\POS.csproj|solutionrelative:pos\\wwwroot\\js\\setting\\stock.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1ADC760F-A802-4C6F-9443-3E7F91EC9ECA}|POS\\POS.csproj|d:\\\u6211\u7684\u6587\u4EF6\\desktop\\kuei\\newpos\\pos\\pos\\areas\\setting\\views\\department_function\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1ADC760F-A802-4C6F-9443-3E7F91EC9ECA}|POS\\POS.csproj|solutionrelative:pos\\areas\\setting\\views\\department_function\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{1ADC760F-A802-4C6F-9443-3E7F91EC9ECA}|POS\\POS.csproj|d:\\\u6211\u7684\u6587\u4EF6\\desktop\\kuei\\newpos\\pos\\pos\\areas\\setting\\controllers\\stockcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1ADC760F-A802-4C6F-9443-3E7F91EC9ECA}|POS\\POS.csproj|solutionrelative:pos\\areas\\setting\\controllers\\stockcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1ADC760F-A802-4C6F-9443-3E7F91EC9ECA}|POS\\POS.csproj|d:\\\u6211\u7684\u6587\u4EF6\\desktop\\kuei\\newpos\\pos\\pos\\wwwroot\\js\\setting\\department_function.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{1ADC760F-A802-4C6F-9443-3E7F91EC9ECA}|POS\\POS.csproj|solutionrelative:pos\\wwwroot\\js\\setting\\department_function.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{1ADC760F-A802-4C6F-9443-3E7F91EC9ECA}|POS\\POS.csproj|d:\\\u6211\u7684\u6587\u4EF6\\desktop\\kuei\\newpos\\pos\\pos\\areas\\setting\\views\\stock\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1ADC760F-A802-4C6F-9443-3E7F91EC9ECA}|POS\\POS.csproj|solutionrelative:pos\\areas\\setting\\views\\stock\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1ADC760F-A802-4C6F-9443-3E7F91EC9ECA}|POS\\POS.csproj|d:\\\u6211\u7684\u6587\u4EF6\\desktop\\kuei\\newpos\\pos\\pos\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1ADC760F-A802-4C6F-9443-3E7F91EC9ECA}|POS\\POS.csproj|solutionrelative:pos\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 183,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,28 +38,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "department_function.js",
-              "DocumentMoniker": "D:\\\u6211\u7684\u6587\u4EF6\\Desktop\\KUEI\\NewPOS\\POS\\POS\\wwwroot\\js\\Setting\\department_function.js",
-              "RelativeDocumentMoniker": "POS\\wwwroot\\js\\Setting\\department_function.js",
-              "ToolTip": "D:\\\u6211\u7684\u6587\u4EF6\\Desktop\\KUEI\\NewPOS\\POS\\POS\\wwwroot\\js\\Setting\\department_function.js",
-              "RelativeToolTip": "POS\\wwwroot\\js\\Setting\\department_function.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-11-12T08:56:02.778Z",
+              "DocumentIndex": 3,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\\u6211\u7684\u6587\u4EF6\\Desktop\\KUEI\\NewPOS\\POS\\POS\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "POS\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\\u6211\u7684\u6587\u4EF6\\Desktop\\KUEI\\NewPOS\\POS\\POS\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "POS\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAAEMAAABWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-13T09:27:10.622Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "StockController.cs",
+              "DocumentMoniker": "D:\\\u6211\u7684\u6587\u4EF6\\Desktop\\KUEI\\NewPOS\\POS\\POS\\Areas\\Setting\\Controllers\\StockController.cs",
+              "RelativeDocumentMoniker": "POS\\Areas\\Setting\\Controllers\\StockController.cs",
+              "ToolTip": "D:\\\u6211\u7684\u6587\u4EF6\\Desktop\\KUEI\\NewPOS\\POS\\POS\\Areas\\Setting\\Controllers\\StockController.cs",
+              "RelativeToolTip": "POS\\Areas\\Setting\\Controllers\\StockController.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAswHwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-13T05:19:10.695Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Department_FunctionController.cs",
-              "DocumentMoniker": "D:\\\u6211\u7684\u6587\u4EF6\\Desktop\\KUEI\\NewPOS\\POS\\POS\\Areas\\Setting\\Controllers\\Department_FunctionController.cs",
-              "RelativeDocumentMoniker": "POS\\Areas\\Setting\\Controllers\\Department_FunctionController.cs",
-              "ToolTip": "D:\\\u6211\u7684\u6587\u4EF6\\Desktop\\KUEI\\NewPOS\\POS\\POS\\Areas\\Setting\\Controllers\\Department_FunctionController.cs*",
-              "RelativeToolTip": "POS\\Areas\\Setting\\Controllers\\Department_FunctionController.cs*",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAQwEIAAABeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-12T08:55:58.075Z",
+              "Title": "stock.js",
+              "DocumentMoniker": "D:\\\u6211\u7684\u6587\u4EF6\\Desktop\\KUEI\\NewPOS\\POS\\POS\\wwwroot\\js\\Setting\\stock.js",
+              "RelativeDocumentMoniker": "POS\\wwwroot\\js\\Setting\\stock.js",
+              "ToolTip": "D:\\\u6211\u7684\u6587\u4EF6\\Desktop\\KUEI\\NewPOS\\POS\\POS\\wwwroot\\js\\Setting\\stock.js*",
+              "RelativeToolTip": "POS\\wwwroot\\js\\Setting\\stock.js*",
+              "ViewState": "AgIAALkAAAAAAAAAAAAkwNAAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-11-13T06:04:25.767Z",
               "EditorCaption": ""
             }
           ]
@@ -66,15 +83,15 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\\u6211\u7684\u6587\u4EF6\\Desktop\\KUEI\\NewPOS\\POS\\POS\\Areas\\Setting\\Views\\Department_Function\\Index.cshtml",
-              "RelativeDocumentMoniker": "POS\\Areas\\Setting\\Views\\Department_Function\\Index.cshtml",
-              "ToolTip": "D:\\\u6211\u7684\u6587\u4EF6\\Desktop\\KUEI\\NewPOS\\POS\\POS\\Areas\\Setting\\Views\\Department_Function\\Index.cshtml",
-              "RelativeToolTip": "POS\\Areas\\Setting\\Views\\Department_Function\\Index.cshtml",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentMoniker": "D:\\\u6211\u7684\u6587\u4EF6\\Desktop\\KUEI\\NewPOS\\POS\\POS\\Areas\\Setting\\Views\\Stock\\Index.cshtml",
+              "RelativeDocumentMoniker": "POS\\Areas\\Setting\\Views\\Stock\\Index.cshtml",
+              "ToolTip": "D:\\\u6211\u7684\u6587\u4EF6\\Desktop\\KUEI\\NewPOS\\POS\\POS\\Areas\\Setting\\Views\\Stock\\Index.cshtml",
+              "RelativeToolTip": "POS\\Areas\\Setting\\Views\\Stock\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAACPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-12T08:56:10.558Z",
+              "WhenOpened": "2024-11-13T06:04:32.793Z",
               "EditorCaption": ""
             }
           ]

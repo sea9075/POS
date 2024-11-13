@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "WyTUQPCsrI/ZIJABu0t1hjc4KSjAjKr0M+JmtydI5cg=",
+  "Hash": "2M1K4wZmJkNuOCOj++u1Xopb8zKCnQwEumDfUGMn7fk=",
   "Source": "POS",
   "BasePath": "_content/POS",
   "Mode": "Default",
@@ -93,6 +93,25 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+      "Identity": "D:\\我的文件\\Desktop\\KUEI\\NewPOS\\POS\\POS\\wwwroot\\images\\employee\\photo\\f6efe47f-c5b9-4b06-98a1-7153f161d535.png",
+      "SourceId": "POS",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\我的文件\\Desktop\\KUEI\\NewPOS\\POS\\POS\\wwwroot\\",
+      "BasePath": "_content/POS",
+      "RelativePath": "images/employee/photo/f6efe47f-c5b9-4b06-98a1-7153f161d535.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\employee\\photo\\f6efe47f-c5b9-4b06-98a1-7153f161d535.png"
+    },
+    {
       "Identity": "D:\\我的文件\\Desktop\\KUEI\\NewPOS\\POS\\POS\\wwwroot\\js\\Setting\\company.js",
       "SourceId": "POS",
       "SourceType": "Discovered",
@@ -148,6 +167,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\Setting\\department_function.js"
+    },
+    {
+      "Identity": "D:\\我的文件\\Desktop\\KUEI\\NewPOS\\POS\\POS\\wwwroot\\js\\Setting\\employee.js",
+      "SourceId": "POS",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\我的文件\\Desktop\\KUEI\\NewPOS\\POS\\POS\\wwwroot\\",
+      "BasePath": "_content/POS",
+      "RelativePath": "js/Setting/employee.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Setting\\employee.js"
     },
     {
       "Identity": "D:\\我的文件\\Desktop\\KUEI\\NewPOS\\POS\\POS\\wwwroot\\js\\Setting\\function.js",

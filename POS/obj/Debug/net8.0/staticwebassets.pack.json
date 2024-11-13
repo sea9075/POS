@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\我的文件\\Desktop\\KUEI\\NewPOS\\POS\\POS\\wwwroot\\images\\employee\\photo\\f6efe47f-c5b9-4b06-98a1-7153f161d535.png",
+      "PackagePath": "staticwebassets\\images\\employee\\photo\\f6efe47f-c5b9-4b06-98a1-7153f161d535.png"
+    },
+    {
       "Id": "D:\\我的文件\\Desktop\\KUEI\\NewPOS\\POS\\POS\\wwwroot\\js\\Setting\\company.js",
       "PackagePath": "staticwebassets\\js\\Setting\\company.js"
     },
@@ -23,6 +27,10 @@
     {
       "Id": "D:\\我的文件\\Desktop\\KUEI\\NewPOS\\POS\\POS\\wwwroot\\js\\Setting\\department_function.js",
       "PackagePath": "staticwebassets\\js\\Setting\\department_function.js"
+    },
+    {
+      "Id": "D:\\我的文件\\Desktop\\KUEI\\NewPOS\\POS\\POS\\wwwroot\\js\\Setting\\employee.js",
+      "PackagePath": "staticwebassets\\js\\Setting\\employee.js"
     },
     {
       "Id": "D:\\我的文件\\Desktop\\KUEI\\NewPOS\\POS\\POS\\wwwroot\\js\\Setting\\function.js",

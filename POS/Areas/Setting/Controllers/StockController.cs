@@ -44,7 +44,7 @@ namespace POS.Areas.Setting.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (stockVM.Stock.StockId == 0 || stockVM.Stock.StockId == null)
+                if (stockVM.Stock.StockId == 0)
                 {
                     stockVM.Stock.Timeset = DateTime.Now;
 
@@ -77,11 +77,20 @@ namespace POS.Areas.Setting.Controllers
         {
             if (ModelState.IsValid)
             {
-                stockVM.Stock.Timeset = DateTime.Now;
-                _unitOfWork.Stock.Update(stockVM.Stock);
-                await _unitOfWork.SaveAsync();
-                TempData["success"] = "更新成功";
-                return RedirectToAction("Index", new { id = stockVM.Stock.StockId });
+                try
+                {
+                    stockVM.Stock.Timeset = DateTime.Now;
+                    _unitOfWork.Stock.Update(stockVM.Stock);
+                    await _unitOfWork.SaveAsync();
+                    TempData["success"] = "更新成功";
+                    return RedirectToAction("Index", new { id = stockVM.Stock.StockId });
+                }
+                catch (Exception e)
+                {
+                    TempData["error"] = "更新失敗";
+                    return RedirectToAction("Index", new {id = stockVM.Stock.StockId});
+                }
+                
             }
             else
             {
@@ -90,7 +99,15 @@ namespace POS.Areas.Setting.Controllers
             }
         }
 
-        [HttpPost]
+        #region API CALLS
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            List<Stock> stockListJson = (await _unitOfWork.Stock.GetAllAsync()).ToList();
+            return Json(new {data = stockListJson});
+        }
+
+        [HttpDelete]
         public async Task<IActionResult> Delete(int? id)
         {
             var stockDeleted = await _unitOfWork.Stock.GetAsync(u => u.StockId == id);
@@ -99,22 +116,12 @@ namespace POS.Areas.Setting.Controllers
             {
                 _unitOfWork.Stock.Remove(stockDeleted);
                 await _unitOfWork.SaveAsync();
-                TempData["success"] = "刪除成功";
-                return RedirectToAction("Index");
+                return Json(new { success = true, message = "刪除成功" });
             }
             else
             {
-                TempData["error"] = "刪除失敗";
-                return RedirectToAction("Index");
+                return Json(new { success = false, message = "刪除失敗" });
             }
-        }
-
-        #region
-        [HttpGet]
-        public async Task<IActionResult> GetAll()
-        {
-            List<Stock> stockListJson = (await _unitOfWork.Stock.GetAllAsync()).ToList();
-            return Json(new {data = stockListJson});
         }
         #endregion
     }
