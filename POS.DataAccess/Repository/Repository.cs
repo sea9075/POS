@@ -36,7 +36,9 @@ namespace POS.DataAccess.Repository
 
             if (!string.IsNullOrEmpty(includeProperties))
             {
-                foreach (var includeProp in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                foreach (var includeProp in includeProperties
+                    .Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                    .Select(p => p.Trim()))
                 {
                     query = query.Include(includeProp);
                 }
@@ -52,7 +54,9 @@ namespace POS.DataAccess.Repository
 
             if (!string.IsNullOrEmpty(includeProperties))
             {
-                foreach (var includeProp in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                foreach (var includeProp in includeProperties
+                    .Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                    .Select(p => p.Trim()))
                 {
                     query = query.Include(includeProp);
                 }

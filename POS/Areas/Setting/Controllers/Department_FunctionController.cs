@@ -19,7 +19,7 @@ namespace POS.Areas.Setting.Controllers
             Department_FunctionViewModel department_FunctionVM = new()
             {
                 Department_Function = new Department_Function(),
-                Department_FunctionList = (await _unitOfWork.Department_Function.GetAllAsync(u => u.DepartmentId == id ,includeProperties: "Function,Department")).ToList(),
+                Department_FunctionList = (await _unitOfWork.Department_Function.GetAllAsync(u => u.DepartmentId == id, includeProperties: "Function,Department")).ToList(),
                 DepartmentList = (await _unitOfWork.Department.GetAllAsync()).ToList(),
             };
 
@@ -27,7 +27,7 @@ namespace POS.Areas.Setting.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddPermission(List<Department_Function> Department_FunctionList)
+        public async Task<IActionResult> Permission(List<Department_Function> Department_FunctionList)
         {
             if (!ModelState.IsValid)
             {

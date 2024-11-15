@@ -84,10 +84,20 @@ namespace POS.Areas.Setting.Controllers
             }
         }
 
-        [HttpPost]
+        
+
+        #region CALLS API
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            List<Department> departmentListJson = (await _unitOfWork.Department.GetAllAsync(u => u.DepartmentId != 1)).ToList();
+            return Json (new {data = departmentListJson});
+        }
+
+        [HttpDelete]
         public async Task<IActionResult> Delete(int? id)
         {
-            var departmentDeleted = await  _unitOfWork.Department.GetAsync(u => u.DepartmentId == id);
+            var departmentDeleted = await _unitOfWork.Department.GetAsync(u => u.DepartmentId == id);
 
             if (departmentDeleted != null)
             {
@@ -100,21 +110,13 @@ namespace POS.Areas.Setting.Controllers
 
                 await _unitOfWork.SaveAsync();
                 TempData["success"] = "刪除成功";
-                return RedirectToAction("Index");
+                return Json(new { success = true });
             }
             else
             {
                 TempData["error"] = "刪除失敗";
-                return RedirectToAction("Index");
+                return Json(new { success = true });
             }
-        }
-
-        #region
-        [HttpGet]
-        public async Task<IActionResult> GetAll()
-        {
-            List<Department> departmentListJson = (await _unitOfWork.Department.GetAllAsync(u => u.DepartmentId != 1)).ToList();
-            return Json (new {data = departmentListJson});
         }
         #endregion
     }

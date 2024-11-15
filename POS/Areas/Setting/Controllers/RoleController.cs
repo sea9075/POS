@@ -37,7 +37,7 @@ namespace POS.Areas.Setting.Controllers
             {
                 role.Timeset = DateTime.Now;
 
-                if (role.RoleId == 0 || role.RoleId == null)
+                if (role.RoleId == 0)
                 {
                     _unitOfWork.Role.Add(role);
                     await _unitOfWork.SaveAsync();
@@ -75,26 +75,6 @@ namespace POS.Areas.Setting.Controllers
             }
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Delete(int? id)
-        {
-            var roleDeleted = await _unitOfWork.Role.GetAsync(u => u.RoleId == id);
-
-            if (roleDeleted != null)
-            {
-                _unitOfWork.Role.Remove(roleDeleted);
-                await _unitOfWork.SaveAsync();
-                TempData["success"] = "刪除成功";
-
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                TempData["error"] = "刪除失敗";
-                return RedirectToAction("Index");
-            }
-        }
-
         #region
         [HttpGet]
         public async Task<IActionResult> GetAll()
@@ -102,6 +82,25 @@ namespace POS.Areas.Setting.Controllers
             // 忽略 Admin
             List<Role> roleListJson = (await _unitOfWork.Role.GetAllAsync(u => u.RoleId != 1)).ToList();
             return Json(new { data = roleListJson });
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(int? id)
+        {
+            var RoleDeleted = await _unitOfWork.Role.GetAsync(u => u.RoleId == id);
+
+            if (RoleDeleted != null)
+            {
+                _unitOfWork.Role.Remove(RoleDeleted);
+                await _unitOfWork.SaveAsync();
+                TempData["success"] = "刪除成功";
+                return Json(new { success = true });
+            }
+            else
+            {
+                TempData["error"] = "刪除失敗";
+                return Json(new { success = false });
+            }
         }
         #endregion
     }

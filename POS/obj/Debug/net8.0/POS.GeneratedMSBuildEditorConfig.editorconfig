@@ -66,6 +66,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2V0dGluZ1xWaWV3c1xEZXBhcnRtZW50X0Z1bmN0aW9uXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/我的文件/Desktop/KUEI/NewPOS/POS/POS/Areas/Setting/Views/EmployeeLogin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2V0dGluZ1xWaWV3c1xFbXBsb3llZUxvZ2luXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/我的文件/Desktop/KUEI/NewPOS/POS/POS/Areas/Setting/Views/Employee/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2V0dGluZ1xWaWV3c1xFbXBsb3llZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

@@ -1,14 +1,13 @@
-﻿// 分類功能
-function selectTable(name) {
-    // 隱藏所有表格
-    var allTables = document.querySelectorAll('.hidden-table');
-    for (var i = 0; i < allTables.length; i++) {
-        allTables[i].style.display = "none";
+﻿function selectTable(name) {
+    var allTable = document.querySelectorAll("tbody");
+
+    // 因為 allTable 總共有 5 個， i = 0 是不需要操作的 tbody
+    for (var i = 1; i < allTable.length; i++) {
+        // 隱藏所有 tbody
+        allTable[i].style.display = "none";
     }
 
-    // 顯示指定的表格
-    var selectedTables = document.querySelectorAll(name);
-    for (var i = 0; i < selectedTables.length; i++) {
-        selectedTables[i].style.display = "table-row";
-    }
+    // 顯示指定的 table
+    var asignTable = document.getElementById(name);
+    asignTable.style.display = "";
 }

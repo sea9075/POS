@@ -26,6 +26,7 @@ namespace POS.Models.Setting
         [RegularExpression(@"^[a-zA-Z0-9]+$", ErrorMessage = "登入密碼只能使用英文大小寫和數字")]
         public string HashPassword { get; set; }
 
+        [ValidateNever]
         [DisplayName("進貨瀏覽限制日期")]
         public DateTime LimitCheckPurchaseDate { get; set; }
 
@@ -37,6 +38,7 @@ namespace POS.Models.Setting
         [DisplayName("可編輯安全庫存")]
         public string? EditSafetyStock { get; set; }
 
+        [ValidateNever]
         public DateTime Timeset {  get; set; }
 
         [ValidateNever]

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "2M1K4wZmJkNuOCOj++u1Xopb8zKCnQwEumDfUGMn7fk=",
+  "Hash": "hS01MEOgR8SjJFtWOCIPKKysPYeIIZjGlB5/KP9mQis=",
   "Source": "POS",
   "BasePath": "_content/POS",
   "Mode": "Default",
@@ -93,12 +93,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "D:\\我的文件\\Desktop\\KUEI\\NewPOS\\POS\\POS\\wwwroot\\images\\employee\\photo\\f6efe47f-c5b9-4b06-98a1-7153f161d535.png",
+      "Identity": "D:\\我的文件\\Desktop\\KUEI\\NewPOS\\POS\\POS\\wwwroot\\images\\employee\\photo\\4ecc16c3-fed2-471f-a7b3-273fda93c030.png",
       "SourceId": "POS",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\我的文件\\Desktop\\KUEI\\NewPOS\\POS\\POS\\wwwroot\\",
       "BasePath": "_content/POS",
-      "RelativePath": "images/employee/photo/f6efe47f-c5b9-4b06-98a1-7153f161d535.png",
+      "RelativePath": "images/employee/photo/4ecc16c3-fed2-471f-a7b3-273fda93c030.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -109,7 +109,26 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\employee\\photo\\f6efe47f-c5b9-4b06-98a1-7153f161d535.png"
+      "OriginalItemSpec": "wwwroot\\images\\employee\\photo\\4ecc16c3-fed2-471f-a7b3-273fda93c030.png"
+    },
+    {
+      "Identity": "D:\\我的文件\\Desktop\\KUEI\\NewPOS\\POS\\POS\\wwwroot\\images\\employee\\photo\\649f8985-02d2-43b0-b2d6-1ddee51fa1aa.png",
+      "SourceId": "POS",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\我的文件\\Desktop\\KUEI\\NewPOS\\POS\\POS\\wwwroot\\",
+      "BasePath": "_content/POS",
+      "RelativePath": "images/employee/photo/649f8985-02d2-43b0-b2d6-1ddee51fa1aa.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\employee\\photo\\649f8985-02d2-43b0-b2d6-1ddee51fa1aa.png"
     },
     {
       "Identity": "D:\\我的文件\\Desktop\\KUEI\\NewPOS\\POS\\POS\\wwwroot\\js\\Setting\\company.js",
@@ -186,6 +205,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\Setting\\employee.js"
+    },
+    {
+      "Identity": "D:\\我的文件\\Desktop\\KUEI\\NewPOS\\POS\\POS\\wwwroot\\js\\Setting\\employeeLogin.js",
+      "SourceId": "POS",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\我的文件\\Desktop\\KUEI\\NewPOS\\POS\\POS\\wwwroot\\",
+      "BasePath": "_content/POS",
+      "RelativePath": "js/Setting/employeeLogin.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Setting\\employeeLogin.js"
     },
     {
       "Identity": "D:\\我的文件\\Desktop\\KUEI\\NewPOS\\POS\\POS\\wwwroot\\js\\Setting\\function.js",

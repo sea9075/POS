@@ -17,7 +17,7 @@
                         <td>@department.ShortName</td>
                         <td>@department.Name</td>
                         <td>
-                            <a onclick="getDepartmentId(@department.DepartmentId)" asp-route-id="@department.DepartmentId">選擇</a>
+                            <a asp-route-id="@department.DepartmentId">選擇</a>
                         </td>
                     </tr>
                 }
@@ -26,28 +26,28 @@
     </div>
     <div class="container col-9">
         <div class="d-flex flex-wrap mb-3">
-            <button class="btn btn-secondary border m-1 flex-grow-1 selectFunction" onclick="selectTable('.front')">前台</button>
-            <button class="btn btn-secondary border m-1 flex-grow-1 selectFunction" onclick="selectTable('.back')">後台</button>
-            <button class="btn btn-secondary border m-1 flex-grow-1 selectFunction" onclick="selectTable('.analyze')">分析</button>
-            <button class="btn btn-secondary border m-1 flex-grow-1 selectFunction" onclick="selectTable('.fix')">維修</button>
+            <button class="btn btn-secondary border m-1 flex-grow-1" onclick="selectTable('front')">前台</button>
+            <button class="btn btn-secondary border m-1 flex-grow-1" onclick="selectTable('back')">後台</button>
+            <button class="btn btn-secondary border m-1 flex-grow-1" onclick="selectTable('analyze')">分析</button>
+            <button class="btn btn-secondary border m-1 flex-grow-1" onclick="selectTable('fix')">維修</button>
         </div>
-        <form method="post" asp-action="AddPermission">
-            <button class="btn btn-primary border m-1 flex-grow-1" type="submit">存檔</button>
+        <form asp-action="Permission">
+            <button class="btn btn-primary border m-1 mb-3" type="submit">存檔</button>
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th>功能名稱</th>
+                        <th>功能</th>
                         <th>啟動</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="front">
                     @for (int i = 0; i < Model.Department_FunctionList.Count; i++)
                     {
                         var item = Model.Department_FunctionList[i];
-                        
+
                         if (item.Function.Group == POS.Utility.Enum.FunctionGroup.前台)
                         {
-                            <tr class="hidden-table front">
+                            <tr>
                                 <td>
                                     @item.Function.FunctionChineseName
                                     <input asp-for="@Model.Department_FunctionList[i].DepartmentId" value="@item.DepartmentId" type="hidden" />
@@ -58,9 +58,16 @@
                                 </td>
                             </tr>
                         }
-                        else if (item.Function.Group == POS.Utility.Enum.FunctionGroup.後台)
+                    }
+                </tbody>
+                <tbody id="back">
+                    @for (int i = 0; i < Model.Department_FunctionList.Count; i++)
+                    {
+                        var item = Model.Department_FunctionList[i];
+
+                        if (item.Function.Group == POS.Utility.Enum.FunctionGroup.後台)
                         {
-                            <tr class="hidden-table back">
+                            <tr>
                                 <td>
                                     @item.Function.FunctionChineseName
                                     <input asp-for="@Model.Department_FunctionList[i].DepartmentId" value="@item.DepartmentId" type="hidden" />
@@ -71,9 +78,16 @@
                                 </td>
                             </tr>
                         }
-                        else if (item.Function.Group == POS.Utility.Enum.FunctionGroup.分析)
+                    }
+                </tbody>
+                <tbody id="analyze">
+                    @for (int i = 0; i < Model.Department_FunctionList.Count; i++)
+                    {
+                        var item = Model.Department_FunctionList[i];
+
+                        if (item.Function.Group == POS.Utility.Enum.FunctionGroup.分析)
                         {
-                            <tr class="hidden-table analyze">
+                            <tr>
                                 <td>
                                     @item.Function.FunctionChineseName
                                     <input asp-for="@Model.Department_FunctionList[i].DepartmentId" value="@item.DepartmentId" type="hidden" />
@@ -84,9 +98,16 @@
                                 </td>
                             </tr>
                         }
-                        else if (item.Function.Group == POS.Utility.Enum.FunctionGroup.維修)
+                    }
+                </tbody>
+                <tbody id="fix">
+                    @for (int i = 0; i < Model.Department_FunctionList.Count; i++)
+                    {
+                        var item = Model.Department_FunctionList[i];
+
+                        if (item.Function.Group == POS.Utility.Enum.FunctionGroup.維修)
                         {
-                            <tr class="hidden-table fix">
+                            <tr>
                                 <td>
                                     @item.Function.FunctionChineseName
                                     <input asp-for="@Model.Department_FunctionList[i].DepartmentId" value="@item.DepartmentId" type="hidden" />
@@ -97,20 +118,28 @@
                                 </td>
                             </tr>
                         }
-                        else
+                    }
+                </tbody>
+                <tbody id="admin">
+                    @for (int i = 0; i < Model.Department_FunctionList.Count; i++)
+                    {
+                        var item = Model.Department_FunctionList[i];
+
+                        if (item.Function.Group == POS.Utility.Enum.FunctionGroup.Admin)
                         {
-                            <input asp-for="@Model.Department_FunctionList[i].Department" value="@item.Department" type="hidden" />
+                            <input asp-for="@Model.Department_FunctionList[i].DepartmentId" value="@item.DepartmentId" type="hidden" />
                             <input asp-for="@Model.Department_FunctionList[i].FunctionId" value="@item.FunctionId" type="hidden" />
-                            <input asp-for="@Model.Department_FunctionList[i].IsEnable" value="false" type="hidden" />
+                            @Html.HiddenFor(u => u.Department_FunctionList[i].IsEnable)
                         }
                     }
                 </tbody>
             </table>
+
         </form>
     </div>
 </div>
 
-@section Scripts{
+@section Scripts {
     @{
         <partial name="_ValidationScriptsPartial" />
     }

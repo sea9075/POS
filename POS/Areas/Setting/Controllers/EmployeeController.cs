@@ -73,6 +73,7 @@ namespace POS.Areas.Setting.Controllers
                     }
                 }
 
+                employee.Timeset =  DateTime.Now;
                 _unitOfWork.Employee.Add(employee);
                 await _unitOfWork.SaveAsync();
                 TempData["success"] = "新增成功";
@@ -102,11 +103,12 @@ namespace POS.Areas.Setting.Controllers
                     // 取得上傳的文件副檔名，並轉換為小寫
                     string fileExtension = Path.GetExtension(file.FileName).ToLower();
 
-                    // 如果上傳的檔案為照片
+                    // 判斷上傳檔案的附檔名
                     if (Array.Exists(allowExtensions, ext => ext == fileExtension))
                     {
                         // 將檔名變更為 GUID + 副檔名
                         string fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+                        
                         // 取得照片儲存的路徑
                         string photoPath = Path.Combine(wwwRootPath, @"images\employee\photo");
 
@@ -123,11 +125,6 @@ namespace POS.Areas.Setting.Controllers
                                 System.IO.File.Delete(oldPhotoPath);
                             }
                         }
-                        else
-                        {
-                            TempData["error"] = "更新失敗，照片只支援 : jpg、jpeg、png、gif 和 bmp 格式";
-                            return RedirectToAction("Index");
-                        }
 
                         // 複製照片到指定資料夾
                         using (var fileStream = new FileStream(Path.Combine(photoPath, fileName), FileMode.Create))
@@ -136,10 +133,16 @@ namespace POS.Areas.Setting.Controllers
                         }
 
                         // 將照片位置存入資料表中
-                        employee.Photo = @"\images\employee\photo" + fileName;
+                        employee.Photo = @"\images\employee\photo\" + fileName;
+                    }
+                    else
+                    {
+                        TempData["error"] = "更新失敗，照片只支援 : jpg、jpeg、png、gif 和 bmp 格式";
+                        return RedirectToAction("Index");
                     }
                 }
 
+                employee.Timeset = DateTime.Now;
                 _unitOfWork.Employee.Update(employee);
                 await _unitOfWork.SaveAsync();
                 TempData["success"] = "更新成功";
@@ -152,31 +155,7 @@ namespace POS.Areas.Setting.Controllers
             }
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Delete(int? id)
-        {
-            var employeeDeleted = await _unitOfWork.Employee.GetAsync(u => u.EmployeeId == id);
-
-            if (employeeDeleted != null)
-            {
-                if (!string.IsNullOrEmpty(employeeDeleted.Photo))
-                {
-                    // 取得舊照片路徑
-                    var oldPhotoPath = employeeDeleted.Photo;
-
-                    // 刪除舊照片
-                    if (System.IO.File.Exists(oldPhotoPath))
-                    {
-                        System.IO.File.Delete(oldPhotoPath);
-                    }
-                }
-                
-                _unitOfWork.Employee.Remove(employeeDeleted);
-                await _unitOfWork.SaveAsync();
-            }
-
-            return RedirectToAction("Index");
-        }
+        
 
         #region
         [HttpGet]
@@ -186,6 +165,38 @@ namespace POS.Areas.Setting.Controllers
             return Json(new {data = EmployeeListJson});
         }
 
+        [HttpDelete]
+        public async Task<IActionResult> Delete(int? id)
+        {
+            var employeeDeleted = await _unitOfWork.Employee.GetAsync(u => u.EmployeeId == id);
+
+            if (employeeDeleted != null)
+            {
+                if (!string.IsNullOrEmpty(employeeDeleted.Photo))
+                {
+                    // 取得舊照片路徑
+                    var oldPhotoPath = Path.Combine(_webHostEnvironment.WebRootPath, employeeDeleted.Photo.TrimStart('\\'));
+
+                    // 刪除舊照片
+                    if (System.IO.File.Exists(oldPhotoPath))
+                    {
+                        System.IO.File.Delete(oldPhotoPath);
+                    }
+                }
+
+                _unitOfWork.Employee.Remove(employeeDeleted);
+                await _unitOfWork.SaveAsync();
+                TempData["success"] = "刪除成功";
+                return Json(new { success = true });
+            }
+            else
+            {
+                TempData["error"] = "刪除失敗";
+                return Json(new { success = false });
+            }
+
+            
+        }
         #endregion
     }
 }

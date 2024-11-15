@@ -1,31 +1,21 @@
 ﻿@model Role
 
 <div class="container">
-    <form method="post" id="roleForm" asp-action="Index">
-        <input asp-for="RoleId" class="form-control" value="@Model.RoleId" type="hidden" id="ModelId" />
+    <form method="post" asp-action="Index">
+        <input asp-for="RoleId" class="form-control" value="@Model.RoleId" type="hidden" id="inputId" />
         <div class="border p-3 mt-4">
             <div class="row pb-2">
-                <h2 class="text-primary">各倉庫 - 基本資料</h2>
+                <h2 class="text-primary">群組權限設定</h2>
                 <hr />
             </div>
             <div class="d-flex flex-wrap mb-3">
-                <button id="addButton" class="btn btn-secondary border m-1 flex-grow-1">新增</button>
-
-                @if (Model.RoleId == 0 || Model.RoleId == null)
-                {
-                    <button id="editButton" class="btn btn-secondary border m-1 flex-grow-1" disabled>修改</button>
-                    <button id="deleteButton" class="btn btn-secondary border m-1 flex-grow-1" disabled>刪除</button>
-                }
-                else
-                {
-                    <button id="editButton" class="btn btn-secondary border m-1 flex-grow-1">修改</button>
-                    <button id="deleteButton" class="btn btn-secondary border m-1 flex-grow-1">刪除</button>
-                }
-
-                <button id="cancelButton" class="btn btn-secondary border m-1 flex-grow-1" disabled>取消</button>
-                <button id="searchButton" class="btn btn-secondary border m-1 flex-grow-1">查詢</button>
-                <button id="printButton" class="btn btn-secondary border m-1 flex-grow-1">列印</button>
-                <button type="submit" class="btn btn-primary m-1 flex-grow-1" id="submitButton" disabled>存檔</button>
+                <button type="button" id="createButton" class="btn btn-secondary border m-1 flex-grow-1" onclick="Create()">新增</button>
+                <button type="button" id="editButton" class="btn btn-secondary border m-1 flex-grow-1" onclick="Edit()" disabled>修改</button>
+                <button type="button" id="deleteButton" class="btn btn-secondary border m-1 flex-grow-1" onclick="Delete(@Model.RoleId)" disabled>刪除</button>
+                <button type="button" id="cancelButton" class="btn btn-secondary border m-1 flex-grow-1" onclick="Cancel()" disabled>取消</button>
+                <button type="button" id="searchButton" class="btn btn-secondary border m-1 flex-grow-1">查詢</button>
+                <button type="button" id="printButton" class="btn btn-secondary border m-1 flex-grow-1">列印</button>
+                <button type="submit" id="submitButton" class="btn btn-primary m-1 flex-grow-1" disabled>存檔</button>
             </div>
             <div class="mb-3 row p-1">
                 <label asp-for="ShortName" class="p-0"></label>
@@ -39,37 +29,37 @@
             </div>
             <div class="row">
                 <div class="mb-3 p-1">
-                    @Html.CheckBoxFor(u => u.CanRead, new { @disabled = "disabled", @class = "form-check-input, aspCheckbox" })
+                    @Html.CheckBoxFor(u => u.CanRead, new { @disabled = "disabled", @class = "form-check-input" })
                     <label asp-for="CanRead" class="p-0"></label>
                     <span asp-validation-for="CanRead" class="text-danger"></span>
                 </div>
                 <div class="mb-3 p-1">
-                    @Html.CheckBoxFor(u => u.CanCreate, new { @disabled = "disabled", @class = "form-check-input, aspCheckbox" })
+                    @Html.CheckBoxFor(u => u.CanCreate, new { @disabled = "disabled", @class = "form-check-input" })
                     <label asp-for="CanCreate" class="p-0"></label>
                     <span asp-validation-for="CanCreate" class="text-danger"></span>
                 </div>
                 <div class="mb-3 p-1">
-                    @Html.CheckBoxFor(u => u.CanEdit, new { @disabled = "disabled", @class = "form-check-input, aspCheckbox" })
+                    @Html.CheckBoxFor(u => u.CanEdit, new { @disabled = "disabled", @class = "form-check-input" })
                     <label asp-for="CanEdit" class="p-0"></label>
                     <span asp-validation-for="CanEdit" class="text-danger"></span>
                 </div>
                 <div class="mb-3 p-1">
-                    @Html.CheckBoxFor(u => u.CanDelete, new { @disabled = "disabled", @class = "form-check-input, aspCheckbox" })
+                    @Html.CheckBoxFor(u => u.CanDelete, new { @disabled = "disabled", @class = "form-check-input" })
                     <label asp-for="CanDelete" class="p-0"></label>
                     <span asp-validation-for="CanDelete" class="text-danger"></span>
                 </div>
                 <div class="mb-3 p-1">
-                    @Html.CheckBoxFor(u => u.CanPrint, new { @disabled = "disabled", @class = "form-check-input, aspCheckbox" })
+                    @Html.CheckBoxFor(u => u.CanPrint, new { @disabled = "disabled", @class = "form-check-input" })
                     <label asp-for="CanPrint" class="p-0"></label>
                     <span asp-validation-for="CanPrint" class="text-danger"></span>
                 </div>
                 <div class="mb-3 p-1">
-                    @Html.CheckBoxFor(u => u.CanAudit, new { @disabled = "disabled", @class = "form-check-input, aspCheckbox" })
+                    @Html.CheckBoxFor(u => u.CanAudit, new { @disabled = "disabled", @class = "form-check-input" })
                     <label asp-for="CanAudit" class="p-0"></label>
                     <span asp-validation-for="CanAudit" class="text-danger"></span>
                 </div>
                 <div class="mb-3 p-1">
-                    @Html.CheckBoxFor(u => u.CanReview, new { @disabled = "disabled", @class = "form-check-input, aspCheckbox" })
+                    @Html.CheckBoxFor(u => u.CanReview, new { @disabled = "disabled", @class = "form-check-input" })
                     <label asp-for="CanReview" class="p-0"></label>
                     <span asp-validation-for="CanReview" class="text-danger"></span>
                 </div>

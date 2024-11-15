@@ -1,0 +1,108 @@
+﻿@model EmployeeLoginViewModel
+
+<div class="container">
+    <form method="post" asp-action="Index">
+        <input asp-for="EmployeeLogin.EmployeeLoginId" class="form-control" value="@Model.EmployeeLogin.EmployeeLoginId" type="hidden" id="inputId" />
+        <div class="border p-3 mt-4">
+            <div class="row pb-2">
+                <h2 class="text-primary">員工登入資料</h2>
+                <hr />
+            </div>
+            <div class="d-flex flex-wrap mb-3">
+                <button type="button" id="createButton" class="btn btn-secondary border m-1 flex-grow-1" onclick="Create()">新增</button>
+                <button type="button" id="editButton" class="btn btn-secondary border m-1 flex-grow-1" onclick="Edit()" disabled>修改</button>
+                <button type="button" id="deleteButton" class="btn btn-secondary border m-1 flex-grow-1" onclick="Delete(@Model.EmployeeLogin.EmployeeLoginId)" disabled>刪除</button>
+                <button type="button" id="cancelButton" class="btn btn-secondary border m-1 flex-grow-1" onclick="Cancel()" disabled>取消</button>
+                <button type="button" id="searchButton" class="btn btn-secondary border m-1 flex-grow-1">查詢</button>
+                <button type="button" id="printButton" class="btn btn-secondary border m-1 flex-grow-1">列印</button>
+                <button type="submit" id="submitButton" class="btn btn-primary m-1 flex-grow-1" disabled>存檔</button>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="mb-3 row p-1">
+                        <label asp-for="EmployeeLogin.EmployeeId" class="p-0"></label>
+                        <select asp-for="EmployeeLogin.EmployeeId" asp-items="@Model.EmployeeList" disabled>
+                            @if (Model.EmployeeLogin.EmployeeId == 0)
+                            {
+                                <option selected disabled>請選擇員工</option>
+                            }
+                        </select>
+                        <span asp-validation-for="EmployeeLogin.EmployeeId" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3 row p-1">
+                        <label asp-for="EmployeeLogin.DepartmentId" class="p-0"></label>
+                        <select asp-for="EmployeeLogin.DepartmentId" asp-items="@Model.DepartmentList" disabled>
+                            @if (Model.EmployeeLogin.DepartmentId == 0)
+                            {
+                                <option selected disabled>請選擇部門</option>
+                            }
+                        </select>
+                        <span asp-validation-for="EmployeeLogin.DepartmentId" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3 row p-1">
+                        <label asp-for="EmployeeLogin.RoleId" class="p-0"></label>
+                        <select asp-for="EmployeeLogin.RoleId" asp-items="@Model.RoleList" disabled>
+                            @if (Model.EmployeeLogin.RoleId == 0)
+                            {
+                                <option selected disabled>請選擇群組</option>
+                            }
+                        </select>
+                        <span asp-validation-for="EmployeeLogin.RoleId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="mb-3 row p-1">
+                        <label asp-for="EmployeeLogin.Account" class="p-0"></label>
+                        <input asp-for="EmployeeLogin.Account" class="form-control" disabled />
+                        <span asp-validation-for="EmployeeLogin.Account" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3 row p-1">
+                        <label asp-for="EmployeeLogin.HashPassword" class="p-0"></label>
+                        <input asp-for="EmployeeLogin.HashPassword" class="form-control" type="password" value="@(Model.EmployeeLogin.EmployeeLoginId != 0 ? Model.EmployeeLogin.HashPassword : "")" disabled />
+                        <span asp-validation-for="EmployeeLogin.HashPassword" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3 row p-1">
+                <label asp-for="EmployeeLogin.LimitCheckPurchaseDate" class="p-0"></label>
+                <input asp-for="EmployeeLogin.LimitCheckPurchaseDate" class="form-control" type="date" value="@(Model.EmployeeLogin.EmployeeLoginId == 0 ? "" : Model.EmployeeLogin.LimitCheckPurchaseDate.ToString("yyyy-MM-dd"))" disabled />
+                <span asp-validation-for="EmployeeLogin.LimitCheckPurchaseDate" class="text-danger"></span>
+            </div>
+            <div class="mb-3 row p-1">
+                <label asp-for="EmployeeLogin.LimitEditSalesOrder" class="p-0"></label>
+                <input asp-for="EmployeeLogin.LimitEditSalesOrder" class="form-control" type="number" disabled />
+                <span asp-validation-for="EmployeeLogin.LimitEditSalesOrder" class="text-danger"></span>
+            </div>
+            <div class="mb-3 row p-1">
+                <label asp-for="EmployeeLogin.EditSafetyStock" class="p-0"></label>
+                <textarea asp-for="EmployeeLogin.EditSafetyStock" class="form-control" disabled ></textarea>
+                <span asp-validation-for="EmployeeLogin.EditSafetyStock" class="text-danger"></span>
+            </div>
+        </div>
+    </form>
+</div>
+<hr />
+<div class="container">
+    <table id="tblData" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>NO</th>
+                <th>員工編號</th>
+                <th>員工姓名</th>
+                <th>部門編號</th>
+                <th>部門名稱</th>
+                <th>群組編號</th>
+                <th>群組名稱</th>
+                <th>登入名稱</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+    <script src="~/js/Setting/employeeLogin.js"></script>
+}

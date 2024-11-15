@@ -90,6 +90,7 @@ namespace POS.DataAccess.Data
                     FunctionId = 1,
                     FunctionName = "Company",
                     FunctionChineseName = "總公司 - 基本資料",
+                    Group = POS.Utility.Enum.FunctionGroup.後台,
                     Timeset = DateTime.Now
                 },
                 new Function
@@ -97,6 +98,7 @@ namespace POS.DataAccess.Data
                     FunctionId = 2,
                     FunctionName = "CostBarcode",
                     FunctionChineseName = "條碼成本編碼",
+                    Group = Utility.Enum.FunctionGroup.後台,
                     Timeset = DateTime.Now
                 },
                 new Function
@@ -104,6 +106,7 @@ namespace POS.DataAccess.Data
                     FunctionId = 3,
                     FunctionName = "CreditCardFee",
                     FunctionChineseName = "信用卡手續費",
+                    Group = Utility.Enum.FunctionGroup.後台,
                     Timeset = DateTime.Now
                 },
                 new Function
@@ -111,13 +114,15 @@ namespace POS.DataAccess.Data
                     FunctionId = 4,
                     FunctionName = "Department",
                     FunctionChineseName = "公司部門資料",
+                    Group = Utility.Enum.FunctionGroup.後台,
                     Timeset = DateTime.Now
                 },
                 new Function
                 {
                     FunctionId = 5,
                     FunctionName = "Department_Function",
-                    FunctionChineseName = "",
+                    FunctionChineseName = "公司部門權限管理",
+                    Group = Utility.Enum.FunctionGroup.後台,
                     Timeset = DateTime.Now
                 },
                 new Function
@@ -125,6 +130,7 @@ namespace POS.DataAccess.Data
                     FunctionId = 6,
                     FunctionName = "Employee",
                     FunctionChineseName = "員工基本資料",
+                    Group = Utility.Enum.FunctionGroup.後台,
                     Timeset = DateTime.Now
                 },
                 new Function
@@ -132,13 +138,15 @@ namespace POS.DataAccess.Data
                     FunctionId = 7,
                     FunctionName = "EmployeeLogin",
                     FunctionChineseName = "員工登入資料",
+                    Group = Utility.Enum.FunctionGroup.後台,
                     Timeset = DateTime.Now
                 },
                 new Function
                 {
                     FunctionId = 8,
                     FunctionName = "Function",
-                    FunctionChineseName = "程式功能",
+                    FunctionChineseName = "",
+                    Group = Utility.Enum.FunctionGroup.Admin,
                     Timeset = DateTime.Now
                 },
                 new Function
@@ -146,6 +154,7 @@ namespace POS.DataAccess.Data
                     FunctionId = 9,
                     FunctionName = "InvoiceInfo",
                     FunctionChineseName = "公司發票資料",
+                    Group = Utility.Enum.FunctionGroup.後台,
                     Timeset = DateTime.Now
                 },
                 new Function
@@ -153,6 +162,7 @@ namespace POS.DataAccess.Data
                     FunctionId = 10,
                     FunctionName = "IP_Permission",
                     FunctionChineseName = "系統 IP 權限設定",
+                    Group = Utility.Enum.FunctionGroup.後台,
                     Timeset = DateTime.Now
                 },
                 new Function
@@ -160,6 +170,7 @@ namespace POS.DataAccess.Data
                     FunctionId = 11,
                     FunctionName = "Role",
                     FunctionChineseName = "群組資料設定",
+                    Group = Utility.Enum.FunctionGroup.後台,
                     Timeset = DateTime.Now
                 },
                 new Function
@@ -167,6 +178,7 @@ namespace POS.DataAccess.Data
                     FunctionId = 12,
                     FunctionName = "Shop",
                     FunctionChineseName = "各店點 - 基本資料",
+                    Group = Utility.Enum.FunctionGroup.後台,
                     Timeset = DateTime.Now
                 },
                 new Function
@@ -174,6 +186,7 @@ namespace POS.DataAccess.Data
                     FunctionId = 13,
                     FunctionName = "ShopSalesTarget",
                     FunctionChineseName = "各店點 - 目標設定",
+                    Group = Utility.Enum.FunctionGroup.後台,
                     Timeset = DateTime.Now
                 },
                 new Function
@@ -181,6 +194,7 @@ namespace POS.DataAccess.Data
                     FunctionId = 14,
                     FunctionName = "Stock",
                     FunctionChineseName = "各倉庫 - 基本資料",
+                    Group = Utility.Enum.FunctionGroup.後台,
                     Timeset = DateTime.Now
                 },
                 new Function
@@ -188,6 +202,28 @@ namespace POS.DataAccess.Data
                     FunctionId = 15,
                     FunctionName = "TelecomSetting",
                     FunctionChineseName = "門號系統商設定",
+                    Group = Utility.Enum.FunctionGroup.後台,
+                    Timeset = DateTime.Now
+                },
+                new Function
+                {
+                    FunctionId = 16,
+                    FunctionName = "FrontFakeFunction1",
+                    Group = Utility.Enum.FunctionGroup.前台,
+                    Timeset = DateTime.Now
+                },
+                new Function
+                {
+                    FunctionId = 17,
+                    FunctionName = "AnalyzeFakeFunction2",
+                    Group = Utility.Enum.FunctionGroup.分析,
+                    Timeset = DateTime.Now
+                },
+                new Function
+                {
+                    FunctionId = 18,
+                    FunctionName = "FixFakeFunction3",
+                    Group = Utility.Enum.FunctionGroup.維修,
                     Timeset = DateTime.Now
                 });
 
@@ -296,6 +332,27 @@ namespace POS.DataAccess.Data
                 {
                     DepartmentId = 1,
                     FunctionId = 15,
+                    IsEnable = true,
+                    Timeset = DateTime.Now
+                },
+                new Department_Function
+                {
+                    DepartmentId = 1,
+                    FunctionId = 16,
+                    IsEnable = true,
+                    Timeset = DateTime.Now
+                },
+                new Department_Function
+                {
+                    DepartmentId = 1,
+                    FunctionId = 17,
+                    IsEnable = true,
+                    Timeset = DateTime.Now
+                },
+                new Department_Function
+                {
+                    DepartmentId = 1,
+                    FunctionId = 18,
                     IsEnable = true,
                     Timeset = DateTime.Now
                 });

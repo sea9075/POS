@@ -13,8 +13,12 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "D:\\我的文件\\Desktop\\KUEI\\NewPOS\\POS\\POS\\wwwroot\\images\\employee\\photo\\f6efe47f-c5b9-4b06-98a1-7153f161d535.png",
-      "PackagePath": "staticwebassets\\images\\employee\\photo\\f6efe47f-c5b9-4b06-98a1-7153f161d535.png"
+      "Id": "D:\\我的文件\\Desktop\\KUEI\\NewPOS\\POS\\POS\\wwwroot\\images\\employee\\photo\\4ecc16c3-fed2-471f-a7b3-273fda93c030.png",
+      "PackagePath": "staticwebassets\\images\\employee\\photo\\4ecc16c3-fed2-471f-a7b3-273fda93c030.png"
+    },
+    {
+      "Id": "D:\\我的文件\\Desktop\\KUEI\\NewPOS\\POS\\POS\\wwwroot\\images\\employee\\photo\\649f8985-02d2-43b0-b2d6-1ddee51fa1aa.png",
+      "PackagePath": "staticwebassets\\images\\employee\\photo\\649f8985-02d2-43b0-b2d6-1ddee51fa1aa.png"
     },
     {
       "Id": "D:\\我的文件\\Desktop\\KUEI\\NewPOS\\POS\\POS\\wwwroot\\js\\Setting\\company.js",
@@ -31,6 +35,10 @@
     {
       "Id": "D:\\我的文件\\Desktop\\KUEI\\NewPOS\\POS\\POS\\wwwroot\\js\\Setting\\employee.js",
       "PackagePath": "staticwebassets\\js\\Setting\\employee.js"
+    },
+    {
+      "Id": "D:\\我的文件\\Desktop\\KUEI\\NewPOS\\POS\\POS\\wwwroot\\js\\Setting\\employeeLogin.js",
+      "PackagePath": "staticwebassets\\js\\Setting\\employeeLogin.js"
     },
     {
       "Id": "D:\\我的文件\\Desktop\\KUEI\\NewPOS\\POS\\POS\\wwwroot\\js\\Setting\\function.js",

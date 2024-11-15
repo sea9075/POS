@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using POS.DataAccess.IRepository;
 using POS.Models.Setting;
@@ -116,11 +117,13 @@ namespace POS.Areas.Setting.Controllers
             {
                 _unitOfWork.Stock.Remove(stockDeleted);
                 await _unitOfWork.SaveAsync();
-                return Json(new { success = true, message = "刪除成功" });
+                TempData["success"] = "刪除成功";
+                return Json(new { success = true});
             }
             else
             {
-                return Json(new { success = false, message = "刪除失敗" });
+                TempData["error"] = "刪除失敗";
+                return Json(new { success = false});
             }
         }
         #endregion

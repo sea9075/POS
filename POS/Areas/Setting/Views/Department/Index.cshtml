@@ -1,18 +1,18 @@
 ﻿@model Department
 
 <div class="container">
-    <form method="post" id="departmentForm" asp-action="Index">
-        <input asp-for="DepartmentId" class="form-control" value="@Model.DepartmentId" type="hidden" id="InputId" />
+    <form method="post" asp-action="Index">
+        <input asp-for="DepartmentId" class="form-control" value="@Model.DepartmentId" type="hidden" id="inputId" />
         <div class="border p-3 mt-4">
             <div class="row pb-2">
                 <h2 class="text-primary">總公司 - 部門資料</h2>
                 <hr />
             </div>
             <div class="d-flex flex-wrap mb-3">
-                <button type="button" id="createButton" class="btn btn-secondary border m-1 flex-grow-1" onclick="add()">新增</button>
-                <button type="button" id="editButton" class="btn btn-secondary border m-1 flex-grow-1" onclick="edit()" @(Model.DepartmentId) == 0 ? "disabled" : "")>修改</button>
-                <button id="deleteButton" class="btn btn-secondary border m-1 flex-grow-1" onclick="deleteClick(@Model.DepartmentId)" @(Model.DepartmentId == 0 ? "disabled" : "")>刪除</button>
-                <button type="button" id="cancelButton" class="btn btn-secondary border m-1 flex-grow-1" onclick="cancel()" disabled>取消</button>
+                <button type="button" id="createButton" class="btn btn-secondary border m-1 flex-grow-1" onclick="Create()">新增</button>
+                <button type="button" id="editButton" class="btn btn-secondary border m-1 flex-grow-1" onclick="Edit()" disabled>修改</button>
+                <button type="button" id="deleteButton" class="btn btn-secondary border m-1 flex-grow-1" onclick="Delete(@Model.DepartmentId)" disabled>刪除</button>
+                <button type="button" id="cancelButton" class="btn btn-secondary border m-1 flex-grow-1" onclick="Cancel()" disabled>取消</button>
                 <button type="button" id="searchButton" class="btn btn-secondary border m-1 flex-grow-1">查詢</button>
                 <button type="button" id="printButton" class="btn btn-secondary border m-1 flex-grow-1">列印</button>
                 <button type="submit" class="btn btn-primary m-1 flex-grow-1" id="submitButton" disabled>存檔</button>

@@ -5,25 +5,10 @@ $(document).ready(function () {
 })
 
 function loadDataTable() {
-    // 定義 Enum
-    const StockGroup = {
-        0: '未分類群組',
-        1: '倉庫群組1',
-        2: '倉庫群組2',
-        3: '倉庫群組3',
-        4: '倉庫群組4',
-        5: '倉庫群組5',
-        6: '倉庫群組6',
-        7: '倉庫群組7',
-        8: '倉庫群組8',
-        9: '倉庫群組9',
-        10: '倉庫群組10'
-    };
-
     // DataTable
     dataTable = $('#tblData').DataTable({
         "ajax": {
-            url: '/Setting/Stock/GetAll'
+            url: '/Setting/EmployeeLogin/GetAll'
         },
         "pageLength": 50,
         "columns": [
@@ -33,32 +18,17 @@ function loadDataTable() {
                     return meta.row + 1;
                 }
             },
-            { data: 'name' },
+            { data: 'employee.employeeId' },
+            { data: 'employee.name' },
+            { data: 'department.shortName' },
+            { data: 'department.name' },
+            { data: 'role.shortName' },
+            { data: 'role.name' },
+            { data: 'account' },
             {
-                data: 'group',
+                data: 'employeeLoginId',
                 "render": function (data) {
-                    return StockGroup[data];
-                }
-            },
-            { data: 'phone' },
-            { data: 'fax' },
-            { data: 'address' },
-            {
-                data: 'isShowFront',
-                "render": function (data) {
-                    return data ? '是' : '否';
-                }
-            },
-            {
-                data: 'isShowHeadquarters',
-                "render": function (data) {
-                    return data ? '是' : '否';
-                }
-            },
-            {
-                data: 'stockId',
-                "render": function (data) {
-                    return `<a href="/Setting/Stock/Index/${data}">選擇</a>`
+                    return `<a href="/Setting/EmployeeLogin/Index/${data}">選擇</a>`
                 }
             }
         ]
@@ -68,14 +38,14 @@ function loadDataTable() {
 // 取得 inputId
 var inputId = document.getElementById("inputId");
 
-// 取得所有 input (不包含 type = "hidden" and "checkbox")
-var inputTags = document.querySelectorAll("input:not([type='hidden']):not([type='checkbox'])");
-
-// 取得所有 checkbox
-var checkboxTags = document.querySelectorAll("input[type='checkbox']");
+// 取得所有 input (不包含 type = "hidden")
+var inputTags = document.querySelectorAll("input:not([type='hidden'])");
 
 // 取得所有 select
 var selectTags = document.querySelectorAll("select");
+
+// 取得 textarea
+var textareaTag = document.querySelector("textarea");
 
 // 取得 form
 var aspForm = document.querySelector("form");
@@ -89,7 +59,6 @@ var searchButton = document.getElementById("searchButton");
 var printButton = document.getElementById("printButton");
 var submitButton = document.getElementById("submitButton");
 
-
 // 新增
 function Create() {
     // 清除 input 的 disabled 屬性和內容
@@ -98,36 +67,41 @@ function Create() {
         inputTags[i].value = "";
     }
 
-    // 清除 checkbox 的 disabled 和 checked 屬性
-    for (var i = 0; i < checkboxTags.length; i++) {
-        checkboxTags[i].removeAttribute("disabled");
-        checkboxTags[i].checked = false;
-    }
-
     // 清除 select 的 disabled 和選項
     for (var i = 0; i < selectTags.length; i++) {
         selectTags[i].removeAttribute("disabled");
-        if (i == 0 && selectTags[i].selectedOptions[0].textContent !== "請選擇倉庫群組") {
+        if (i == 0 && selectTags[i].selectedOptions[0].textContent !== "請選擇員工") {
+            var defaultOption = document.createElement("option");
+            defaultOption.textContent = "請選擇員工";
+            defaultOption.disabled = true;
+            defaultOption.selected = true;
+            selectTags[i].insertBefore(defaultOption, selectTags[i].firstChild);
+        }
+        if (i == 1 && selectTags[i].selectedOptions[0].textContent !== "請選擇部門") {
+            var defaultOption = document.createElement("option");
+            defaultOption.textContent = "請選擇部門";
+            defaultOption.disabled = true;
+            defaultOption.selected = true;
+            selectTags[i].insertBefore(defaultOption, selectTags[i].firstChild);
+        }
+        if (i == 2 && selectTags[i].selectedOptions[0].textContent !== "請選擇群組") {
             var defaultOption = document.createElement("option");
             defaultOption.textContent = "請選擇群組";
             defaultOption.disabled = true;
             defaultOption.selected = true;
             selectTags[i].insertBefore(defaultOption, selectTags[i].firstChild);
         }
-        if (i == 1 && selectTags[i].selectedOptions[0].textContent !== "請選擇店點") {
-            var defaultOption = document.createElement("option");
-            defaultOption.textContent = "請選擇店點";
-            defaultOption.disabled = true;
-            defaultOption.selected = true;
-            selectTags[i].insertBefore(defaultOption, selectTags[i].firstChild);
-        }
     }
+
+    // 清除 textarea 的 disabled和內容
+    textareaTag.removeAttribute("disabled");
+    textareaTag.value = "";
 
     // 設定 input 的 Id 為 0
     inputId.value = 0;
 
     // 設定 form 的 controller
-    aspForm.setAttribute("action", "/Setting/Stock/Create");
+    aspForm.setAttribute("action", "/Setting/EmployeeLogin/Create");
 
     // 增加 disabled
     createButton.setAttribute("disabled", "disabled");
@@ -154,19 +128,16 @@ function Edit() {
         inputTags[i].removeAttribute("disabled");
     }
 
-    // 清除 checkbox 的 disabled
-    for (var i = 0; i < checkboxTags.length; i++) {
-        checkboxTags[i].removeAttribute("disabled");
-    }
-
     // 清除 select 的 disabled
     for (var i = 0; i < selectTags.length; i++) {
         selectTags[i].removeAttribute("disabled");
     }
 
+    // 清除 textarea 的 disabled和內容
+    textareaTag.removeAttribute("disabled");
 
     // 設定 form 的 controller
-    aspForm.setAttribute("action", "/Setting/Stock/Edit");
+    aspForm.setAttribute("action", "/Setting/EmployeeLogin/Edit");
 
     // 增加 disabled
     createButton.setAttribute("disabled", "disabled");
@@ -178,39 +149,4 @@ function Edit() {
     // 移除 disabled
     cancelButton.removeAttribute("disabled");
     submitButton.removeAttribute("disabled");
-}
-
-// 取消
-function Cancel() {
-    window.location.href = "/Setting/Stock/Index";
-}
-
-// 刪除
-function DeleteApi(url) {
-    Swal.fire({
-        title: "你確定要刪除嗎",
-        text: "刪除過後資料將無法復原",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "是",
-        cancelButtonText: "否"
-    }).then((result) => {
-        if (result.isConfirmed) {
-            $.ajax({
-                url: url,
-                type: 'DELETE',
-                success: function (data) {
-                    window.location.href = "/Setting/Stock/Index";
-                }
-            });
-        }
-    });
-}
-
-
-function Delete(id) {
-    url = `/Setting/Stock/Delete/${id}`;
-    DeleteApi(url)
 }

@@ -24,14 +24,14 @@
             </div>
             <div class="mb-3 row p-1">
                 <div class="col d-flex align-items-center">
-                    @Html.CheckBoxFor(model => model.Stock.IsShowFront, new {@class = "form-check-input", @disabled = true})
+                    @Html.CheckBoxFor(u => u.Stock.IsShowFront, new {@class = "form-check-input", @disabled = true})
                     <label asp-for="Stock.IsShowFront" class="p-0 m-0"></label>
                     <span asp-validation-for="Stock.IsShowFront" class="text-danger"></span>
                 </div>
             </div>
             <div class="mb-3 row p-1">
                 <div class="col d-flex align-items-center">
-                    @Html.CheckBoxFor(model => model.Stock.IsShowHeadquarters, new { @class = "form-check-input", @disabled = true })
+                    @Html.CheckBoxFor(u => u.Stock.IsShowHeadquarters, new { @class = "form-check-input", @disabled = true })
                     <label asp-for="Stock.IsShowHeadquarters" class="p-0"></label>
                     <span asp-validation-for="Stock.IsShowHeadquarters" class="text-danger"></span>
                 </div>
@@ -53,13 +53,24 @@
             </div>
             <div class="mb-3 row p-1">
                 <label asp-for="Stock.Group" class="p-0"></label>
-                <select asp-for="Stock.Group" asp-items="@Html.GetEnumSelectList<POS.Utility.Enum.StockGroup>();" disabled>
+                @{
+                    var stockGroupList = Html.GetEnumSelectList<POS.Utility.Enum.StockGroup>();
+                }
+                <select asp-for="Stock.Group" asp-items="@stockGroupList" disabled>
+                    @if (Model.Stock.Group == null)
+                    {
+                        <option selected disabled>請選擇倉庫群組</option>
+                    }
                 </select>
                 <span asp-validation-for="Stock.Group" class="text-danger"></span>
             </div>
             <div class="mb-3 row p-1">
                 <label asp-for="Stock.ShopId" class="p-0"></label>
                 <select asp-for="Stock.ShopId" asp-items="@Model.ShopList" disabled>
+                    @if (Model.Stock.ShopId == null)
+                    {
+                        <option selected disabled>請選擇店點</option>
+                    }
                 </select>
                 <span asp-validation-for="Stock.ShopId" class="text-danger"></span>
             </div>
